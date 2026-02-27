@@ -1,0 +1,77 @@
+name: Advanced Excel API
+description: A comprehensive API for advanced Excel operations including data manipulation, formula execution, chart generation, and workbook management
+image: https://example.com/images/advanced-excel-api-logo.png
+created: '2024-01-15'
+modified: '2024-01-15'
+specificationVersion: '0.16'
+url: https://api.advancedexcel.com/apis.yaml
+apis:
+- name: Advanced Excel Core API
+  description: Main API for Excel workbook operations, data manipulation, and formula calculations
+  image: https://example.com/images/excel-core-api.png
+  humanURL: https://advancedexcel.com
+  baseURL: https://api.advancedexcel.com/v1
+  version: '1.0'
+  tags:
+  - Excel
+  - Spreadsheets
+  - Data Processing
+  - Automation
+  - Business Intelligence
+  properties:
+  - type: documentation
+    url: https://docs.advancedexcel.com
+  - type: openapi
+    url: https://api.advancedexcel.com/openapi.json
+  - type: swagger
+    url: https://api.advancedexcel.com/swagger.json
+  - type: postman-collection
+    url: https://api.advancedexcel.com/postman-collection.json
+  - type: authentication
+    url: https://docs.advancedexcel.com/authentication
+  - type: pricing
+    url: https://advancedexcel.com/pricing
+  - type: terms-of-service
+    url: https://advancedexcel.com/terms
+  - type: privacy-policy
+    url: https://advancedexcel.com/privacy
+  - type: rate-limits
+    url: https://docs.advancedexcel.com/rate-limits
+  - type: status
+    url: https://status.advancedexcel.com
+  - type: support
+    url: https://support.advancedexcel.com
+  - type: sdk
+    url: https://github.com/advancedexcel/sdk-javascript
+  - type: sdk
+    url: https://github.com/advancedexcel/sdk-python
+  - type: sdk
+    url: https://github.com/advancedexcel/sdk-csharp
+  contact:
+  - type: email
+    url: mailto:api@advancedexcel.com
+  - type: twitter
+    url: https://twitter.com/advancedexcelapi
+  - type: github
+    url: https://github.com/advancedexcel
+maintainers:
+- name: Advanced Excel API Team
+  email: api-team@advancedexcel.com
+  twitter: '@advancedexcelapi'
+tags:
+- name: Excel
+- name: Spreadsheets
+- name: API
+- name: Data Processing
+- name: Automation
+- name: Cloud Services
+- name: Business Tools
+include:
+- name: Workbook Operations API
+  url: https://api.advancedexcel.com/apis/workbook.yaml
+- name: Formula Calculation API
+  url: https://api.advancedexcel.com/apis/formulas.yaml
+- name: Chart Generation API
+  url: https://api.advancedexcel.com/apis/charts.yaml
+- name: Data Import/Export API
+  url: https://api.advancedexcel.com/apis/data-io.yaml
