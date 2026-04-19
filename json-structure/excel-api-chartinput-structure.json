@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "$id": "excel-api-chartinput-structure.json",
+  "title": "ChartInput",
+  "description": "Request to create a chart.",
+  "type": "object",
+  "properties": {
+    "type": {
+      "type": "string",
+      "description": "Chart type."
+    },
+    "sourceData": {
+      "type": "string",
+      "description": "A1-style data range."
+    },
+    "seriesBy": {
+      "type": "string",
+      "description": "How series are plotted."
+    }
+  }
+}

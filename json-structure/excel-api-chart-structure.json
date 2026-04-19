@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "$id": "excel-api-chart-structure.json",
+  "title": "Chart",
+  "description": "An Excel chart.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Chart identifier."
+    },
+    "name": {
+      "type": "string",
+      "description": "Chart name."
+    },
+    "chartType": {
+      "type": "string",
+      "description": "Chart type."
+    },
+    "height": {
+      "type": "float",
+      "description": "Height in points."
+    },
+    "width": {
+      "type": "float",
+      "description": "Width in points."
+    }
+  }
+}

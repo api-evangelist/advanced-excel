@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Session",
+  "description": "A workbook session for batch operations.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Session identifier.",
+      "example": "session-abc123"
+    },
+    "persistChanges": {
+      "type": "boolean",
+      "description": "Whether changes are persisted.",
+      "example": true
+    }
+  }
+}

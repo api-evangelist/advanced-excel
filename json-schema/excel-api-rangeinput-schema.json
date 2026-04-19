@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "RangeInput",
+  "description": "Request to write values to a range.",
+  "type": "object",
+  "properties": {
+    "values": {
+      "type": "array",
+      "description": "2D array of values to write.",
+      "items": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

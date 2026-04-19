@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "$id": "excel-api-rangeinput-structure.json",
+  "title": "RangeInput",
+  "description": "Request to write values to a range.",
+  "type": "object",
+  "properties": {
+    "values": {
+      "type": "array",
+      "description": "2D array of values to write."
+    }
+  }
+}

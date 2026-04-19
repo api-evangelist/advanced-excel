@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "$id": "excel-api-table-structure.json",
+  "title": "Table",
+  "description": "An Excel table.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Table identifier."
+    },
+    "name": {
+      "type": "string",
+      "description": "Table name."
+    },
+    "showHeaders": {
+      "type": "boolean",
+      "description": "Whether header row is shown."
+    },
+    "showTotals": {
+      "type": "boolean",
+      "description": "Whether total row is shown."
+    }
+  }
+}

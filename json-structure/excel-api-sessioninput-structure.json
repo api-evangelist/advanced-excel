@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "$id": "excel-api-sessioninput-structure.json",
+  "title": "SessionInput",
+  "description": "Request to create a workbook session.",
+  "type": "object",
+  "properties": {
+    "persistChanges": {
+      "type": "boolean",
+      "description": "Whether changes should be persisted."
+    }
+  }
+}

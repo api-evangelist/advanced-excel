@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "WorksheetList",
+  "description": "List of worksheets.",
+  "type": "object",
+  "properties": {
+    "value": {
+      "type": "array",
+      "description": "Array of worksheets.",
+      "items": {
+        "$ref": "#/$defs/Worksheet"
+      }
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Worksheet",
+  "description": "An Excel worksheet.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Worksheet identifier.",
+      "example": "sheet1"
+    },
+    "name": {
+      "type": "string",
+      "description": "Worksheet display name.",
+      "example": "Sheet1"
+    },
+    "position": {
+      "type": "integer",
+      "description": "Zero-based index position.",
+      "example": 0
+    },
+    "visibility": {
+      "type": "string",
+      "description": "Visibility.",
+      "enum": [
+        "Visible",
+        "Hidden",
+        "VeryHidden"
+      ]
+    }
+  }
+}

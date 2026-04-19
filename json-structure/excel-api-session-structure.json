@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "$id": "excel-api-session-structure.json",
+  "title": "Session",
+  "description": "A workbook session for batch operations.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Session identifier."
+    },
+    "persistChanges": {
+      "type": "boolean",
+      "description": "Whether changes are persisted."
+    }
+  }
+}

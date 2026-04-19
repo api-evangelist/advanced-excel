@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SessionInput",
+  "description": "Request to create a workbook session.",
+  "type": "object",
+  "properties": {
+    "persistChanges": {
+      "type": "boolean",
+      "description": "Whether changes should be persisted.",
+      "example": true
+    }
+  }
+}

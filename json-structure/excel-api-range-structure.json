@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "$id": "excel-api-range-structure.json",
+  "title": "Range",
+  "description": "A cell range in a worksheet with values and formulas.",
+  "type": "object",
+  "properties": {
+    "address": {
+      "type": "string",
+      "description": "A1-style range address."
+    },
+    "values": {
+      "type": "array",
+      "description": "2D array of cell values."
+    },
+    "formulas": {
+      "type": "array",
+      "description": "2D array of cell formulas."
+    }
+  }
+}

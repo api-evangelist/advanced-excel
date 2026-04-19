@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "$id": "excel-api-worksheet-structure.json",
+  "title": "Worksheet",
+  "description": "An Excel worksheet.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Worksheet identifier."
+    },
+    "name": {
+      "type": "string",
+      "description": "Worksheet display name."
+    },
+    "position": {
+      "type": "int32",
+      "description": "Zero-based index position."
+    },
+    "visibility": {
+      "type": "string",
+      "description": "Visibility."
+    }
+  }
+}

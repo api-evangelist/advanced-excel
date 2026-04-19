@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Chart",
+  "description": "An Excel chart.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Chart identifier.",
+      "example": "chart1"
+    },
+    "name": {
+      "type": "string",
+      "description": "Chart name.",
+      "example": "SalesChart"
+    },
+    "chartType": {
+      "type": "string",
+      "description": "Chart type.",
+      "example": "ColumnClustered"
+    },
+    "height": {
+      "type": "number",
+      "description": "Height in points.",
+      "example": 300
+    },
+    "width": {
+      "type": "number",
+      "description": "Width in points.",
+      "example": 500
+    }
+  }
+}

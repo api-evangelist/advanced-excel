@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Table",
+  "description": "An Excel table.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Table identifier.",
+      "example": "table1"
+    },
+    "name": {
+      "type": "string",
+      "description": "Table name.",
+      "example": "SalesTable"
+    },
+    "showHeaders": {
+      "type": "boolean",
+      "description": "Whether header row is shown.",
+      "example": true
+    },
+    "showTotals": {
+      "type": "boolean",
+      "description": "Whether total row is shown.",
+      "example": false
+    }
+  }
+}

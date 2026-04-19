@@ -1,0 +1,16 @@
+{
+  "value": [
+    {
+      "id": "sheet1",
+      "name": "Sheet1",
+      "position": 0,
+      "visibility": "Visible"
+    },
+    {
+      "id": "sheet2",
+      "name": "Sales Data",
+      "position": 1,
+      "visibility": "Visible"
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ChartList",
+  "description": "List of charts.",
+  "type": "object",
+  "properties": {
+    "value": {
+      "type": "array",
+      "description": "Array of charts.",
+      "items": {
+        "$ref": "#/$defs/Chart"
+      }
+    }
+  }
+}

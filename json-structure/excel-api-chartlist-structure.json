@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "$id": "excel-api-chartlist-structure.json",
+  "title": "ChartList",
+  "description": "List of charts.",
+  "type": "object",
+  "properties": {
+    "value": {
+      "type": "array",
+      "description": "Array of charts."
+    }
+  }
+}

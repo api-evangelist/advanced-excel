@@ -1,0 +1,182 @@
+vocabulary: "1.0.0"
+
+info:
+  provider: "Advanced Excel"
+  description: "Vocabulary for the Advanced Excel topic covering programmatic access to Excel workbooks, worksheets, ranges, tables, and charts via REST APIs."
+  created: "2026-04-19"
+  modified: "2026-04-19"
+
+operational:
+  apis:
+    - name: "Microsoft Graph Excel API"
+      namespace: microsoft-graph-excel
+      version: "v1.0"
+      baseUrl: https://graph.microsoft.com/v1.0
+      status: active
+
+  resources:
+    - name: worksheets
+      api: microsoft-graph-excel
+      actions: [list, add]
+    - name: ranges
+      api: microsoft-graph-excel
+      actions: [get, update]
+    - name: tables
+      api: microsoft-graph-excel
+      actions: [list]
+    - name: charts
+      api: microsoft-graph-excel
+      actions: [list, add]
+    - name: sessions
+      api: microsoft-graph-excel
+      actions: [create]
+
+  actions:
+    - name: list
+      method: GET
+      pattern: read
+    - name: get
+      method: GET
+      pattern: read
+    - name: add
+      method: POST
+      pattern: write
+    - name: create
+      method: POST
+      pattern: write
+    - name: update
+      method: PATCH
+      pattern: write
+
+  schemas:
+    core:
+      - Worksheet
+      - WorksheetInput
+      - WorksheetList
+      - Range
+      - RangeInput
+    tabular:
+      - Table
+      - TableList
+    visualization:
+      - Chart
+      - ChartInput
+      - ChartList
+    sessions:
+      - Session
+      - SessionInput
+
+  parameters:
+    identifiers:
+      - driveItemId
+      - worksheetId
+      - chartId
+      - tableId
+    addressing:
+      - address
+
+  enums:
+    worksheetVisibility:
+      - Visible
+      - Hidden
+      - VeryHidden
+    chartTypes:
+      - ColumnClustered
+      - Bar
+      - Line
+      - Pie
+      - Scatter
+      - Area
+    seriesBy:
+      - Auto
+      - Columns
+      - Rows
+
+  authentication:
+    schemes:
+      - name: oauth2
+        type: oauth2
+        flow: authorizationCode
+        authorizationUrl: https://login.microsoftonline.com/common/oauth2/v2.0/authorize
+        tokenUrl: https://login.microsoftonline.com/common/oauth2/v2.0/token
+        apis: [microsoft-graph-excel]
+    scopes:
+      - name: Files.ReadWrite
+        description: Read and write user files
+      - name: Files.ReadWrite.All
+        description: Read and write all files
+
+capability:
+  workflows: []
+  personas:
+    - id: data-analyst
+      name: Data Analyst
+      description: Analyst who reads and writes Excel data for reporting and analytics
+      workflows: []
+    - id: automation-developer
+      name: Automation Developer
+      description: Developer building automated Excel-based business workflows
+      workflows: []
+    - id: business-intelligence-engineer
+      name: Business Intelligence Engineer
+      description: BI engineer integrating Excel data with data warehouses and dashboards
+      workflows: []
+
+  domains:
+    - name: Spreadsheet Data
+      resources: [worksheets, ranges]
+    - name: Data Visualization
+      resources: [charts]
+    - name: Tabular Data
+      resources: [tables]
+    - name: Workflow Automation
+      resources: [sessions]
+
+  namespaces:
+    consumed:
+      - name: microsoft-graph-excel
+        type: http
+        baseUri: https://graph.microsoft.com/v1.0
+
+  binds:
+    - name: GRAPH_ACCESS_TOKEN
+      description: Microsoft Graph OAuth 2.0 access token with Files.ReadWrite scope
+
+crossReference:
+  - resource: worksheets
+    operations:
+      - operationId: listWorksheets
+        method: GET
+        path: /me/drive/items/{driveItemId}/workbook/worksheets
+      - operationId: addWorksheet
+        method: POST
+        path: /me/drive/items/{driveItemId}/workbook/worksheets
+    workflows: []
+    personas: [data-analyst, automation-developer]
+  - resource: ranges
+    operations:
+      - operationId: getRange
+        method: GET
+        path: /me/drive/items/{driveItemId}/workbook/worksheets/{worksheetId}/range(address='{address}')
+      - operationId: updateRange
+        method: PATCH
+        path: /me/drive/items/{driveItemId}/workbook/worksheets/{worksheetId}/range(address='{address}')
+    workflows: []
+    personas: [data-analyst, automation-developer, business-intelligence-engineer]
+  - resource: tables
+    operations:
+      - operationId: listTables
+        method: GET
+        path: /me/drive/items/{driveItemId}/workbook/worksheets/{worksheetId}/tables
+    workflows: []
+    personas: [data-analyst, business-intelligence-engineer]
+  - resource: charts
+    operations:
+      - operationId: listCharts
+        method: GET
+        path: /me/drive/items/{driveItemId}/workbook/worksheets/{worksheetId}/charts
+      - operationId: addChart
+        method: POST
+        path: /me/drive/items/{driveItemId}/workbook/worksheets/{worksheetId}/charts
+    workflows: []
+    personas: [data-analyst]

@@ -1,0 +1,5 @@
+{
+  "type": "ColumnClustered",
+  "sourceData": "Sheet1!A1:B10",
+  "seriesBy": "Auto"
+}

@@ -1,0 +1,7 @@
+{
+  "id": "chart1",
+  "name": "SalesChart",
+  "chartType": "ColumnClustered",
+  "height": 300,
+  "width": 500
+}

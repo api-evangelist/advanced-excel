@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "WorksheetInput",
+  "description": "Request to add a new worksheet.",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Name for the new worksheet.",
+      "example": "Sales Data"
+    }
+  }
+}

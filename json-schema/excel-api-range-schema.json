@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Range",
+  "description": "A cell range in a worksheet with values and formulas.",
+  "type": "object",
+  "properties": {
+    "address": {
+      "type": "string",
+      "description": "A1-style range address.",
+      "example": "Sheet1!A1:B10"
+    },
+    "values": {
+      "type": "array",
+      "description": "2D array of cell values.",
+      "items": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      }
+    },
+    "formulas": {
+      "type": "array",
+      "description": "2D array of cell formulas.",
+      "items": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

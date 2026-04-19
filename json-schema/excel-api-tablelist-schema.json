@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "TableList",
+  "description": "List of Excel tables.",
+  "type": "object",
+  "properties": {
+    "value": {
+      "type": "array",
+      "description": "Array of tables.",
+      "items": {
+        "$ref": "#/$defs/Table"
+      }
+    }
+  }
+}

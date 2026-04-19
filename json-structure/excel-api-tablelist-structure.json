@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "$id": "excel-api-tablelist-structure.json",
+  "title": "TableList",
+  "description": "List of Excel tables.",
+  "type": "object",
+  "properties": {
+    "value": {
+      "type": "array",
+      "description": "Array of tables."
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-structure.org/meta/extended/v0/#",
+  "$id": "excel-api-worksheetinput-structure.json",
+  "title": "WorksheetInput",
+  "description": "Request to add a new worksheet.",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Name for the new worksheet."
+    }
+  }
+}
