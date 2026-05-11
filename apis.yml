@@ -41,6 +41,16 @@ apis:
     url: json-ld/microsoft-graph-excel-api-context.jsonld
   - type: Vocabulary
     url: vocabulary/advanced-excel-vocabulary.yaml
+integrations:
+  - name: Microsoft
+  - name: Two people looking at a computer.
+  - name: This is placeholder text for
+  - name: IDC
+  - name: Nationwide
+  - name: RSA company
+  - name: Teleperformance
+  - name: A woman smiling at a laptop
+  - name: A man holding a laptop.
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
@@ -105,3 +115,5 @@ common:
     description: Node.js library for reading, manipulating, and writing Excel workbook files.
   - name: Google Sheets API
     description: Google's spreadsheet REST API offering similar capabilities for Sheets-based workflows.
+- type: Integrations
+  url: https://www.microsoft.com/en-us/marketplace
