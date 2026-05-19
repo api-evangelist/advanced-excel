@@ -1,6 +1,5 @@
 aid: advanced-excel
-url: >-
-  https://raw.githubusercontent.com/api-evangelist/advanced-excel/refs/heads/main/apis.yml
+url: https://raw.githubusercontent.com/api-evangelist/advanced-excel/refs/heads/main/apis.yml
 name: Advanced Excel
 type: Index
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
@@ -12,14 +11,18 @@ tags:
 - Excel
 - Microsoft
 - Spreadsheets
-description: >-
-  Advanced Excel is a subject-matter topic encompassing Microsoft Excel's programmatic capabilities for data analysis, formula execution, workbook management, chart generation, and automation. This topic index covers REST APIs, open data schemas, and developer tools for working with Excel workbooks programmatically, including Microsoft Graph Excel API, open-source spreadsheet libraries, and data interchange formats used in business intelligence and automation workflows.
+description: Advanced Excel is a subject-matter topic encompassing Microsoft Excel's programmatic capabilities for data analysis,
+  formula execution, workbook management, chart generation, and automation. This topic index covers REST APIs, open data schemas,
+  and developer tools for working with Excel workbooks programmatically, including Microsoft Graph Excel API, open-source
+  spreadsheet libraries, and data interchange formats used in business intelligence and automation workflows.
 created: '2024-01-15'
-modified: '2026-04-19'
+modified: '2026-05-19'
 specificationVersion: '0.19'
 apis:
 - name: Microsoft Graph Excel API
-  description: The Microsoft Graph Excel API provides REST access to Excel workbooks stored in OneDrive, SharePoint, or Teams. Supports reading and writing cell values, executing formulas, managing worksheets, creating charts and tables, and running workbook sessions for transactional batch operations.
+  description: The Microsoft Graph Excel API provides REST access to Excel workbooks stored in OneDrive, SharePoint, or Teams.
+    Supports reading and writing cell values, executing formulas, managing worksheets, creating charts and tables, and running
+    workbook sessions for transactional batch operations.
   humanURL: https://learn.microsoft.com/en-us/graph/api/resources/excel
   baseURL: https://graph.microsoft.com/v1.0
   tags:
@@ -41,16 +44,26 @@ apis:
     url: json-ld/microsoft-graph-excel-api-context.jsonld
   - type: Vocabulary
     url: vocabulary/advanced-excel-vocabulary.yaml
+  - type: NaftikoCapability
+    url: capabilities/microsoft-graph-excel-charts.yaml
+  - type: NaftikoCapability
+    url: capabilities/microsoft-graph-excel-ranges.yaml
+  - type: NaftikoCapability
+    url: capabilities/microsoft-graph-excel-tables.yaml
+  - type: NaftikoCapability
+    url: capabilities/microsoft-graph-excel-workbooks.yaml
+  - type: NaftikoCapability
+    url: capabilities/microsoft-graph-excel-worksheets.yaml
 integrations:
-  - name: Microsoft
-  - name: Two people looking at a computer.
-  - name: This is placeholder text for
-  - name: IDC
-  - name: Nationwide
-  - name: RSA company
-  - name: Teleperformance
-  - name: A woman smiling at a laptop
-  - name: A man holding a laptop.
+- name: Microsoft
+- name: Two people looking at a computer.
+- name: This is placeholder text for
+- name: IDC
+- name: Nationwide
+- name: RSA company
+- name: Teleperformance
+- name: A woman smiling at a laptop
+- name: A man holding a laptop.
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
