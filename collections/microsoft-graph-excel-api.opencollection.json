@@ -1,0 +1,272 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Microsoft Graph Excel API",
+    "version": "v1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "authorization_code",
+      "authorizationUrl": "https://login.microsoftonline.com/common/oauth2/v2.0/authorize",
+      "accessTokenUrl": "https://login.microsoftonline.com/common/oauth2/v2.0/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Worksheets",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Microsoft Excel List Worksheets",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://graph.microsoft.com/v1.0/me/drive/items/:driveItemId/workbook/worksheets",
+            "params": [
+              {
+                "name": "driveItemId",
+                "value": "",
+                "type": "path",
+                "description": "OneDrive item ID of the Excel workbook."
+              }
+            ]
+          },
+          "docs": "Retrieve a list of worksheets in an Excel workbook stored in OneDrive."
+        },
+        {
+          "info": {
+            "name": "Microsoft Excel Add Worksheet",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://graph.microsoft.com/v1.0/me/drive/items/:driveItemId/workbook/worksheets",
+            "params": [
+              {
+                "name": "driveItemId",
+                "value": "",
+                "type": "path",
+                "description": "OneDrive item ID of the Excel workbook."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add a new worksheet to an Excel workbook."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Ranges",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Microsoft Excel Get Cell Range Values",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://graph.microsoft.com/v1.0/me/drive/items/:driveItemId/workbook/worksheets/:worksheetId/range(address=':address')",
+            "params": [
+              {
+                "name": "driveItemId",
+                "value": "",
+                "type": "path",
+                "description": "OneDrive item ID of the Excel workbook."
+              },
+              {
+                "name": "worksheetId",
+                "value": "",
+                "type": "path",
+                "description": "Worksheet ID or name."
+              },
+              {
+                "name": "address",
+                "value": "",
+                "type": "path",
+                "description": "Cell range address (e.g., A1:D10)."
+              }
+            ]
+          },
+          "docs": "Retrieve cell values, formulas, and formatting for a specified range in a worksheet."
+        },
+        {
+          "info": {
+            "name": "Microsoft Excel Update Cell Range Values",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://graph.microsoft.com/v1.0/me/drive/items/:driveItemId/workbook/worksheets/:worksheetId/range(address=':address')",
+            "params": [
+              {
+                "name": "driveItemId",
+                "value": "",
+                "type": "path",
+                "description": "OneDrive item ID of the Excel workbook."
+              },
+              {
+                "name": "worksheetId",
+                "value": "",
+                "type": "path",
+                "description": "Worksheet ID or name."
+              },
+              {
+                "name": "address",
+                "value": "",
+                "type": "path",
+                "description": "Cell range address (e.g., A1:D10)."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Write values or formulas to a specified cell range in a worksheet."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Tables",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Microsoft Excel List Worksheet Tables",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://graph.microsoft.com/v1.0/me/drive/items/:driveItemId/workbook/worksheets/:worksheetId/tables",
+            "params": [
+              {
+                "name": "driveItemId",
+                "value": "",
+                "type": "path",
+                "description": "OneDrive item ID of the Excel workbook."
+              },
+              {
+                "name": "worksheetId",
+                "value": "",
+                "type": "path",
+                "description": "Worksheet ID or name."
+              }
+            ]
+          },
+          "docs": "List all tables defined in an Excel worksheet."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Charts",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Microsoft Excel List Worksheet Charts",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://graph.microsoft.com/v1.0/me/drive/items/:driveItemId/workbook/worksheets/:worksheetId/charts",
+            "params": [
+              {
+                "name": "driveItemId",
+                "value": "",
+                "type": "path",
+                "description": "OneDrive item ID of the Excel workbook."
+              },
+              {
+                "name": "worksheetId",
+                "value": "",
+                "type": "path",
+                "description": "Worksheet ID or name."
+              }
+            ]
+          },
+          "docs": "List all charts in an Excel worksheet."
+        },
+        {
+          "info": {
+            "name": "Microsoft Excel Add Chart to Worksheet",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://graph.microsoft.com/v1.0/me/drive/items/:driveItemId/workbook/worksheets/:worksheetId/charts",
+            "params": [
+              {
+                "name": "driveItemId",
+                "value": "",
+                "type": "path",
+                "description": "OneDrive item ID of the Excel workbook."
+              },
+              {
+                "name": "worksheetId",
+                "value": "",
+                "type": "path",
+                "description": "Worksheet ID or name."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new chart in an Excel worksheet from a specified data range."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Workbooks",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Microsoft Excel Create Workbook Session",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://graph.microsoft.com/v1.0/me/drive/items/:driveItemId/workbook/createSession",
+            "params": [
+              {
+                "name": "driveItemId",
+                "value": "",
+                "type": "path",
+                "description": "OneDrive item ID of the Excel workbook."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a persistent workbook session for transactional batch operations on an Excel file."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
