@@ -61,6 +61,8 @@ maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
 common:
+  - type: OAuthScopes
+    url: scopes/advanced-excel-scopes.yml
   - type: Website
     url: https://www.microsoft.com/en-us/microsoft-365/excel
   - type: Documentation

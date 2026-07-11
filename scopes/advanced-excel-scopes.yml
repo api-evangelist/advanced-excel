@@ -1,0 +1,23 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/microsoft-graph-excel-api-openapi.yml
+schemes:
+- name: oauth2
+  source: openapi/microsoft-graph-excel-api-openapi.yml
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://login.microsoftonline.com/common/oauth2/v2.0/authorize
+    tokenUrl: https://login.microsoftonline.com/common/oauth2/v2.0/token
+scopes:
+- scope: Files.ReadWrite
+  description: Read and write user files
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/microsoft-graph-excel-api-openapi.yml
+- scope: Files.ReadWrite.All
+  description: Read and write all files
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/microsoft-graph-excel-api-openapi.yml
