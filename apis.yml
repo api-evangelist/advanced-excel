@@ -61,6 +61,8 @@ maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
 common:
+  - type: AgenticAccess
+    url: agentic-access/advanced-excel-agentic-access.yml
   - type: TrustCenter
     url: security/advanced-excel-trust-center.yml
   - type: VulnerabilityDisclosure
