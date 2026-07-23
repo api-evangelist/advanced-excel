@@ -1,0 +1,197 @@
+openapi: 3.0.3
+info:
+  title: Microsoft Graph Excel Charts Worksheets API
+  description: The Microsoft Graph Excel API provides REST access to Excel workbooks stored in OneDrive, SharePoint, or Teams. Supports reading and writing cell values, executing formulas, managing worksheets, creating charts and tables, and running workbook sessions for transactional batch operations on Excel files.
+  version: v1.0
+  contact:
+    name: Microsoft Graph Support
+    url: https://learn.microsoft.com/en-us/graph/overview
+  termsOfService: https://www.microsoft.com/en-us/servicesagreement
+  license:
+    name: Microsoft APIs Terms of Use
+    url: https://www.microsoft.com/en-us/servicesagreement
+servers:
+- url: https://graph.microsoft.com/v1.0
+  description: Microsoft Graph API Production
+security:
+- oauth2: []
+tags:
+- name: Worksheets
+  description: Worksheet management within a workbook
+paths:
+  /me/drive/items/{driveItemId}/workbook/worksheets:
+    get:
+      operationId: listWorksheets
+      summary: Microsoft Excel List Worksheets
+      description: Retrieve a list of worksheets in an Excel workbook stored in OneDrive.
+      tags:
+      - Worksheets
+      parameters:
+      - name: driveItemId
+        in: path
+        required: true
+        description: OneDrive item ID of the Excel workbook.
+        schema:
+          type: string
+      responses:
+        '200':
+          description: List of worksheets.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WorksheetList'
+              examples:
+                listWorksheets200Example:
+                  summary: Default listWorksheets 200 response
+                  x-microcks-default: true
+                  value:
+                    value:
+                    - id: sheet1
+                      name: Sheet1
+                      position: 0
+                      visibility: Visible
+        '401':
+          description: Unauthorized.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                listWorksheets401Example:
+                  summary: Default listWorksheets 401 response
+                  x-microcks-default: true
+                  value:
+                    error:
+                      code: Unauthorized
+                      message: Access token is missing or invalid
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    post:
+      operationId: addWorksheet
+      summary: Microsoft Excel Add Worksheet
+      description: Add a new worksheet to an Excel workbook.
+      tags:
+      - Worksheets
+      parameters:
+      - name: driveItemId
+        in: path
+        required: true
+        description: OneDrive item ID of the Excel workbook.
+        schema:
+          type: string
+      requestBody:
+        required: true
+        description: Worksheet creation parameters.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WorksheetInput'
+            examples:
+              addWorksheetRequestExample:
+                summary: Default addWorksheet request
+                x-microcks-default: true
+                value:
+                  name: Sales Data
+      responses:
+        '201':
+          description: Worksheet created.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Worksheet'
+              examples:
+                addWorksheet201Example:
+                  summary: Default addWorksheet 201 response
+                  x-microcks-default: true
+                  value:
+                    id: sheet2
+                    name: Sales Data
+                    position: 1
+                    visibility: Visible
+        '401':
+          description: Unauthorized.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                addWorksheet401Example:
+                  summary: Default addWorksheet 401 response
+                  x-microcks-default: true
+                  value:
+                    error:
+                      code: Unauthorized
+                      message: Access token is missing or invalid
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  schemas:
+    Worksheet:
+      type: object
+      description: An Excel worksheet.
+      properties:
+        id:
+          type: string
+          description: Worksheet identifier.
+          example: sheet1
+        name:
+          type: string
+          description: Worksheet display name.
+          example: Sheet1
+        position:
+          type: integer
+          description: Zero-based index position of the worksheet.
+          example: 0
+        visibility:
+          type: string
+          description: Worksheet visibility.
+          enum:
+          - Visible
+          - Hidden
+          - VeryHidden
+          example: Visible
+    WorksheetList:
+      type: object
+      description: List of worksheets.
+      properties:
+        value:
+          type: array
+          description: Array of worksheets.
+          items:
+            $ref: '#/components/schemas/Worksheet'
+    WorksheetInput:
+      type: object
+      description: Request to add a new worksheet.
+      properties:
+        name:
+          type: string
+          description: Name for the new worksheet.
+          example: Sales Data
+    ErrorResponse:
+      type: object
+      description: Microsoft Graph API error response.
+      properties:
+        error:
+          type: object
+          description: Error details.
+          properties:
+            code:
+              type: string
+              description: Error code.
+              example: Unauthorized
+            message:
+              type: string
+              description: Error message.
+              example: Access token is missing or invalid.
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://login.microsoftonline.com/common/oauth2/v2.0/authorize
+          tokenUrl: https://login.microsoftonline.com/common/oauth2/v2.0/token
+          scopes:
+            Files.ReadWrite: Read and write user files
+            Files.ReadWrite.All: Read and write all files

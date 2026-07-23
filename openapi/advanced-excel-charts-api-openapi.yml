@@ -1,0 +1,225 @@
+openapi: 3.0.3
+info:
+  title: Microsoft Graph Excel Charts API
+  description: The Microsoft Graph Excel API provides REST access to Excel workbooks stored in OneDrive, SharePoint, or Teams. Supports reading and writing cell values, executing formulas, managing worksheets, creating charts and tables, and running workbook sessions for transactional batch operations on Excel files.
+  version: v1.0
+  contact:
+    name: Microsoft Graph Support
+    url: https://learn.microsoft.com/en-us/graph/overview
+  termsOfService: https://www.microsoft.com/en-us/servicesagreement
+  license:
+    name: Microsoft APIs Terms of Use
+    url: https://www.microsoft.com/en-us/servicesagreement
+servers:
+- url: https://graph.microsoft.com/v1.0
+  description: Microsoft Graph API Production
+security:
+- oauth2: []
+tags:
+- name: Charts
+  description: Chart creation and management
+paths:
+  /me/drive/items/{driveItemId}/workbook/worksheets/{worksheetId}/charts:
+    get:
+      operationId: listCharts
+      summary: Microsoft Excel List Worksheet Charts
+      description: List all charts in an Excel worksheet.
+      tags:
+      - Charts
+      parameters:
+      - name: driveItemId
+        in: path
+        required: true
+        description: OneDrive item ID of the Excel workbook.
+        schema:
+          type: string
+      - name: worksheetId
+        in: path
+        required: true
+        description: Worksheet ID or name.
+        schema:
+          type: string
+      responses:
+        '200':
+          description: List of charts.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ChartList'
+              examples:
+                listCharts200Example:
+                  summary: Default listCharts 200 response
+                  x-microcks-default: true
+                  value:
+                    value:
+                    - id: chart1
+                      name: SalesChart
+                      chartType: ColumnClustered
+                      height: 300
+                      width: 500
+        '401':
+          description: Unauthorized.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                listCharts401Example:
+                  summary: Default listCharts 401 response
+                  x-microcks-default: true
+                  value:
+                    error:
+                      code: Unauthorized
+                      message: Access token is missing or invalid
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    post:
+      operationId: addChart
+      summary: Microsoft Excel Add Chart to Worksheet
+      description: Create a new chart in an Excel worksheet from a specified data range.
+      tags:
+      - Charts
+      parameters:
+      - name: driveItemId
+        in: path
+        required: true
+        description: OneDrive item ID of the Excel workbook.
+        schema:
+          type: string
+      - name: worksheetId
+        in: path
+        required: true
+        description: Worksheet ID or name.
+        schema:
+          type: string
+      requestBody:
+        required: true
+        description: Chart creation parameters.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ChartInput'
+            examples:
+              addChartRequestExample:
+                summary: Default addChart request
+                x-microcks-default: true
+                value:
+                  type: ColumnClustered
+                  sourceData: Sheet1!A1:B10
+                  seriesBy: Auto
+      responses:
+        '201':
+          description: Chart created.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Chart'
+              examples:
+                addChart201Example:
+                  summary: Default addChart 201 response
+                  x-microcks-default: true
+                  value:
+                    id: chart2
+                    name: Chart 1
+                    chartType: ColumnClustered
+                    height: 300
+                    width: 500
+        '401':
+          description: Unauthorized.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                addChart401Example:
+                  summary: Default addChart 401 response
+                  x-microcks-default: true
+                  value:
+                    error:
+                      code: Unauthorized
+                      message: Access token is missing or invalid
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  schemas:
+    Chart:
+      type: object
+      description: An Excel chart.
+      properties:
+        id:
+          type: string
+          description: Chart identifier.
+          example: chart1
+        name:
+          type: string
+          description: Chart name.
+          example: SalesChart
+        chartType:
+          type: string
+          description: Chart type.
+          example: ColumnClustered
+        height:
+          type: number
+          description: Chart height in points.
+          example: 300
+        width:
+          type: number
+          description: Chart width in points.
+          example: 500
+    ErrorResponse:
+      type: object
+      description: Microsoft Graph API error response.
+      properties:
+        error:
+          type: object
+          description: Error details.
+          properties:
+            code:
+              type: string
+              description: Error code.
+              example: Unauthorized
+            message:
+              type: string
+              description: Error message.
+              example: Access token is missing or invalid.
+    ChartInput:
+      type: object
+      description: Request to create a chart.
+      properties:
+        type:
+          type: string
+          description: Chart type.
+          example: ColumnClustered
+        sourceData:
+          type: string
+          description: A1-style range address of the source data.
+          example: Sheet1!A1:B10
+        seriesBy:
+          type: string
+          description: How series are plotted.
+          enum:
+          - Auto
+          - Columns
+          - Rows
+          example: Auto
+    ChartList:
+      type: object
+      description: List of charts.
+      properties:
+        value:
+          type: array
+          description: Array of charts.
+          items:
+            $ref: '#/components/schemas/Chart'
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://login.microsoftonline.com/common/oauth2/v2.0/authorize
+          tokenUrl: https://login.microsoftonline.com/common/oauth2/v2.0/token
+          scopes:
+            Files.ReadWrite: Read and write user files
+            Files.ReadWrite.All: Read and write all files

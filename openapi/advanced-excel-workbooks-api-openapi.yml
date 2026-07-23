@@ -1,0 +1,127 @@
+openapi: 3.0.3
+info:
+  title: Microsoft Graph Excel Charts Workbooks API
+  description: The Microsoft Graph Excel API provides REST access to Excel workbooks stored in OneDrive, SharePoint, or Teams. Supports reading and writing cell values, executing formulas, managing worksheets, creating charts and tables, and running workbook sessions for transactional batch operations on Excel files.
+  version: v1.0
+  contact:
+    name: Microsoft Graph Support
+    url: https://learn.microsoft.com/en-us/graph/overview
+  termsOfService: https://www.microsoft.com/en-us/servicesagreement
+  license:
+    name: Microsoft APIs Terms of Use
+    url: https://www.microsoft.com/en-us/servicesagreement
+servers:
+- url: https://graph.microsoft.com/v1.0
+  description: Microsoft Graph API Production
+security:
+- oauth2: []
+tags:
+- name: Workbooks
+  description: Excel workbook access and session management
+paths:
+  /me/drive/items/{driveItemId}/workbook/createSession:
+    post:
+      operationId: createWorkbookSession
+      summary: Microsoft Excel Create Workbook Session
+      description: Create a persistent workbook session for transactional batch operations on an Excel file.
+      tags:
+      - Workbooks
+      parameters:
+      - name: driveItemId
+        in: path
+        required: true
+        description: OneDrive item ID of the Excel workbook.
+        schema:
+          type: string
+      requestBody:
+        required: true
+        description: Session creation parameters.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SessionInput'
+            examples:
+              createWorkbookSessionRequestExample:
+                summary: Default createWorkbookSession request
+                x-microcks-default: true
+                value:
+                  persistChanges: true
+      responses:
+        '201':
+          description: Session created.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Session'
+              examples:
+                createWorkbookSession201Example:
+                  summary: Default createWorkbookSession 201 response
+                  x-microcks-default: true
+                  value:
+                    id: session-abc123
+                    persistChanges: true
+        '401':
+          description: Unauthorized.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                createWorkbookSession401Example:
+                  summary: Default createWorkbookSession 401 response
+                  x-microcks-default: true
+                  value:
+                    error:
+                      code: Unauthorized
+                      message: Access token is missing or invalid
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  schemas:
+    Session:
+      type: object
+      description: A workbook session for batch operations.
+      properties:
+        id:
+          type: string
+          description: Session identifier to pass in Workbook-Session-Id header.
+          example: session-abc123
+        persistChanges:
+          type: boolean
+          description: Whether changes are persisted.
+          example: true
+    SessionInput:
+      type: object
+      description: Request to create a workbook session.
+      properties:
+        persistChanges:
+          type: boolean
+          description: Whether changes should be persisted to the workbook.
+          example: true
+    ErrorResponse:
+      type: object
+      description: Microsoft Graph API error response.
+      properties:
+        error:
+          type: object
+          description: Error details.
+          properties:
+            code:
+              type: string
+              description: Error code.
+              example: Unauthorized
+            message:
+              type: string
+              description: Error message.
+              example: Access token is missing or invalid.
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://login.microsoftonline.com/common/oauth2/v2.0/authorize
+          tokenUrl: https://login.microsoftonline.com/common/oauth2/v2.0/token
+          scopes:
+            Files.ReadWrite: Read and write user files
+            Files.ReadWrite.All: Read and write all files

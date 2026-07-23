@@ -1,0 +1,225 @@
+openapi: 3.0.3
+info:
+  title: Microsoft Graph Excel Charts Ranges API
+  description: The Microsoft Graph Excel API provides REST access to Excel workbooks stored in OneDrive, SharePoint, or Teams. Supports reading and writing cell values, executing formulas, managing worksheets, creating charts and tables, and running workbook sessions for transactional batch operations on Excel files.
+  version: v1.0
+  contact:
+    name: Microsoft Graph Support
+    url: https://learn.microsoft.com/en-us/graph/overview
+  termsOfService: https://www.microsoft.com/en-us/servicesagreement
+  license:
+    name: Microsoft APIs Terms of Use
+    url: https://www.microsoft.com/en-us/servicesagreement
+servers:
+- url: https://graph.microsoft.com/v1.0
+  description: Microsoft Graph API Production
+security:
+- oauth2: []
+tags:
+- name: Ranges
+  description: Cell range read/write operations
+paths:
+  /me/drive/items/{driveItemId}/workbook/worksheets/{worksheetId}/range(address='{address}'):
+    get:
+      operationId: getRange
+      summary: Microsoft Excel Get Cell Range Values
+      description: Retrieve cell values, formulas, and formatting for a specified range in a worksheet.
+      tags:
+      - Ranges
+      parameters:
+      - name: driveItemId
+        in: path
+        required: true
+        description: OneDrive item ID of the Excel workbook.
+        schema:
+          type: string
+      - name: worksheetId
+        in: path
+        required: true
+        description: Worksheet ID or name.
+        schema:
+          type: string
+      - name: address
+        in: path
+        required: true
+        description: Cell range address (e.g., A1:D10).
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Range data including values, formulas, and format.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Range'
+              examples:
+                getRange200Example:
+                  summary: Default getRange 200 response
+                  x-microcks-default: true
+                  value:
+                    address: Sheet1!A1:B2
+                    values:
+                    - - Name
+                      - Value
+                    - - Revenue
+                      - 50000
+                    formulas:
+                    - - Name
+                      - Value
+                    - - Revenue
+                      - '50000'
+        '401':
+          description: Unauthorized.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                getRange401Example:
+                  summary: Default getRange 401 response
+                  x-microcks-default: true
+                  value:
+                    error:
+                      code: Unauthorized
+                      message: Access token is missing or invalid
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    patch:
+      operationId: updateRange
+      summary: Microsoft Excel Update Cell Range Values
+      description: Write values or formulas to a specified cell range in a worksheet.
+      tags:
+      - Ranges
+      parameters:
+      - name: driveItemId
+        in: path
+        required: true
+        description: OneDrive item ID of the Excel workbook.
+        schema:
+          type: string
+      - name: worksheetId
+        in: path
+        required: true
+        description: Worksheet ID or name.
+        schema:
+          type: string
+      - name: address
+        in: path
+        required: true
+        description: Cell range address (e.g., A1:D10).
+        schema:
+          type: string
+      requestBody:
+        required: true
+        description: Range values to write.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RangeInput'
+            examples:
+              updateRangeRequestExample:
+                summary: Default updateRange request
+                x-microcks-default: true
+                value:
+                  values:
+                  - - Name
+                    - Value
+                  - - Revenue
+                    - 50000
+      responses:
+        '200':
+          description: Updated range.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Range'
+              examples:
+                updateRange200Example:
+                  summary: Default updateRange 200 response
+                  x-microcks-default: true
+                  value:
+                    address: Sheet1!A1:B2
+                    values:
+                    - - Name
+                      - Value
+                    - - Revenue
+                      - 50000
+        '401':
+          description: Unauthorized.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                updateRange401Example:
+                  summary: Default updateRange 401 response
+                  x-microcks-default: true
+                  value:
+                    error:
+                      code: Unauthorized
+                      message: Access token is missing or invalid
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  schemas:
+    Range:
+      type: object
+      description: A cell range in a worksheet with values and formulas.
+      properties:
+        address:
+          type: string
+          description: A1-style range address.
+          example: Sheet1!A1:B10
+        values:
+          type: array
+          description: 2D array of cell values.
+          items:
+            type: array
+            items:
+              type: string
+        formulas:
+          type: array
+          description: 2D array of cell formulas.
+          items:
+            type: array
+            items:
+              type: string
+    RangeInput:
+      type: object
+      description: Request to write values to a range.
+      properties:
+        values:
+          type: array
+          description: 2D array of values to write.
+          items:
+            type: array
+            items:
+              type: string
+    ErrorResponse:
+      type: object
+      description: Microsoft Graph API error response.
+      properties:
+        error:
+          type: object
+          description: Error details.
+          properties:
+            code:
+              type: string
+              description: Error code.
+              example: Unauthorized
+            message:
+              type: string
+              description: Error message.
+              example: Access token is missing or invalid.
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://login.microsoftonline.com/common/oauth2/v2.0/authorize
+          tokenUrl: https://login.microsoftonline.com/common/oauth2/v2.0/token
+          scopes:
+            Files.ReadWrite: Read and write user files
+            Files.ReadWrite.All: Read and write all files

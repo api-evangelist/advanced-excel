@@ -1,0 +1,132 @@
+openapi: 3.0.3
+info:
+  title: Microsoft Graph Excel Charts Tables API
+  description: The Microsoft Graph Excel API provides REST access to Excel workbooks stored in OneDrive, SharePoint, or Teams. Supports reading and writing cell values, executing formulas, managing worksheets, creating charts and tables, and running workbook sessions for transactional batch operations on Excel files.
+  version: v1.0
+  contact:
+    name: Microsoft Graph Support
+    url: https://learn.microsoft.com/en-us/graph/overview
+  termsOfService: https://www.microsoft.com/en-us/servicesagreement
+  license:
+    name: Microsoft APIs Terms of Use
+    url: https://www.microsoft.com/en-us/servicesagreement
+servers:
+- url: https://graph.microsoft.com/v1.0
+  description: Microsoft Graph API Production
+security:
+- oauth2: []
+tags:
+- name: Tables
+  description: Excel table management
+paths:
+  /me/drive/items/{driveItemId}/workbook/worksheets/{worksheetId}/tables:
+    get:
+      operationId: listTables
+      summary: Microsoft Excel List Worksheet Tables
+      description: List all tables defined in an Excel worksheet.
+      tags:
+      - Tables
+      parameters:
+      - name: driveItemId
+        in: path
+        required: true
+        description: OneDrive item ID of the Excel workbook.
+        schema:
+          type: string
+      - name: worksheetId
+        in: path
+        required: true
+        description: Worksheet ID or name.
+        schema:
+          type: string
+      responses:
+        '200':
+          description: List of tables.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TableList'
+              examples:
+                listTables200Example:
+                  summary: Default listTables 200 response
+                  x-microcks-default: true
+                  value:
+                    value:
+                    - id: table1
+                      name: SalesTable
+                      showHeaders: true
+                      showTotals: false
+        '401':
+          description: Unauthorized.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                listTables401Example:
+                  summary: Default listTables 401 response
+                  x-microcks-default: true
+                  value:
+                    error:
+                      code: Unauthorized
+                      message: Access token is missing or invalid
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  schemas:
+    ErrorResponse:
+      type: object
+      description: Microsoft Graph API error response.
+      properties:
+        error:
+          type: object
+          description: Error details.
+          properties:
+            code:
+              type: string
+              description: Error code.
+              example: Unauthorized
+            message:
+              type: string
+              description: Error message.
+              example: Access token is missing or invalid.
+    Table:
+      type: object
+      description: An Excel table.
+      properties:
+        id:
+          type: string
+          description: Table identifier.
+          example: table1
+        name:
+          type: string
+          description: Table name.
+          example: SalesTable
+        showHeaders:
+          type: boolean
+          description: Whether header row is shown.
+          example: true
+        showTotals:
+          type: boolean
+          description: Whether total row is shown.
+          example: false
+    TableList:
+      type: object
+      description: List of tables.
+      properties:
+        value:
+          type: array
+          description: Array of tables.
+          items:
+            $ref: '#/components/schemas/Table'
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://login.microsoftonline.com/common/oauth2/v2.0/authorize
+          tokenUrl: https://login.microsoftonline.com/common/oauth2/v2.0/token
+          scopes:
+            Files.ReadWrite: Read and write user files
+            Files.ReadWrite.All: Read and write all files
