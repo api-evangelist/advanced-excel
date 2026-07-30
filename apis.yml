@@ -2,7 +2,20 @@ aid: advanced-excel
 url: https://raw.githubusercontent.com/api-evangelist/advanced-excel/refs/heads/main/apis.yml
 name: Advanced Excel
 type: Index
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Freemium · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/advanced-excel.png
 tags:
   - Automation
   - Business Intelligence
@@ -21,32 +34,106 @@ created: '2024-01-15'
 modified: '2026-05-19'
 specificationVersion: '0.19'
 apis:
-  - name: Microsoft Graph Excel API
-    description: >-
-      The Microsoft Graph Excel API provides REST access to Excel workbooks stored in OneDrive, SharePoint, or Teams.
-      Supports reading and writing cell values, executing formulas, managing worksheets, creating charts and tables, and
-      running workbook sessions for transactional batch operations.
-    humanURL: https://learn.microsoft.com/en-us/graph/api/resources/excel
-    baseURL: https://graph.microsoft.com/v1.0
-    tags:
-      - Excel
-      - Microsoft
-      - OneDrive
-      - REST API
-      - Spreadsheets
-    properties:
-      - type: Documentation
-        url: https://learn.microsoft.com/en-us/graph/api/resources/excel
-      - type: OpenAPI
-        url: openapi/microsoft-graph-excel-api-openapi.yml
-      - type: JSONSchema
-        url: json-schema/
-      - type: JSONStructure
-        url: json-structure/
-      - type: JSONLD
-        url: json-ld/microsoft-graph-excel-api-context.jsonld
-      - type: Vocabulary
-        url: vocabulary/advanced-excel-vocabulary.yaml
+- aid: advanced-excel:advanced-excel-charts-api
+  name: Advanced Excel Charts API
+  description: Chart creation and management
+  humanURL: https://learn.microsoft.com/en-us/graph/api/resources/excel
+  baseURL: https://graph.microsoft.com/v1.0
+  tags:
+  - Charts
+  properties:
+  - type: OpenAPI
+    url: openapi/advanced-excel-charts-api-openapi.yml
+  - type: Documentation
+    url: https://learn.microsoft.com/en-us/graph/api/resources/excel
+  - type: JSONSchema
+    url: json-schema/
+  - type: JSONStructure
+    url: json-structure/
+  - type: JSONLD
+    url: json-ld/microsoft-graph-excel-api-context.jsonld
+  - type: Vocabulary
+    url: vocabulary/advanced-excel-vocabulary.yaml
+- aid: advanced-excel:advanced-excel-ranges-api
+  name: Advanced Excel Ranges API
+  description: Cell range read/write operations
+  humanURL: https://learn.microsoft.com/en-us/graph/api/resources/excel
+  baseURL: https://graph.microsoft.com/v1.0
+  tags:
+  - Ranges
+  properties:
+  - type: OpenAPI
+    url: openapi/advanced-excel-ranges-api-openapi.yml
+  - type: Documentation
+    url: https://learn.microsoft.com/en-us/graph/api/resources/excel
+  - type: JSONSchema
+    url: json-schema/
+  - type: JSONStructure
+    url: json-structure/
+  - type: JSONLD
+    url: json-ld/microsoft-graph-excel-api-context.jsonld
+  - type: Vocabulary
+    url: vocabulary/advanced-excel-vocabulary.yaml
+- aid: advanced-excel:advanced-excel-tables-api
+  name: Advanced Excel Tables API
+  description: Excel table management
+  humanURL: https://learn.microsoft.com/en-us/graph/api/resources/excel
+  baseURL: https://graph.microsoft.com/v1.0
+  tags:
+  - Tables
+  properties:
+  - type: OpenAPI
+    url: openapi/advanced-excel-tables-api-openapi.yml
+  - type: Documentation
+    url: https://learn.microsoft.com/en-us/graph/api/resources/excel
+  - type: JSONSchema
+    url: json-schema/
+  - type: JSONStructure
+    url: json-structure/
+  - type: JSONLD
+    url: json-ld/microsoft-graph-excel-api-context.jsonld
+  - type: Vocabulary
+    url: vocabulary/advanced-excel-vocabulary.yaml
+- aid: advanced-excel:advanced-excel-workbooks-api
+  name: Advanced Excel Workbooks API
+  description: Excel workbook access and session management
+  humanURL: https://learn.microsoft.com/en-us/graph/api/resources/excel
+  baseURL: https://graph.microsoft.com/v1.0
+  tags:
+  - Workbooks
+  properties:
+  - type: OpenAPI
+    url: openapi/advanced-excel-workbooks-api-openapi.yml
+  - type: Documentation
+    url: https://learn.microsoft.com/en-us/graph/api/resources/excel
+  - type: JSONSchema
+    url: json-schema/
+  - type: JSONStructure
+    url: json-structure/
+  - type: JSONLD
+    url: json-ld/microsoft-graph-excel-api-context.jsonld
+  - type: Vocabulary
+    url: vocabulary/advanced-excel-vocabulary.yaml
+- aid: advanced-excel:advanced-excel-worksheets-api
+  name: Advanced Excel Worksheets API
+  description: Worksheet management within a workbook
+  humanURL: https://learn.microsoft.com/en-us/graph/api/resources/excel
+  baseURL: https://graph.microsoft.com/v1.0
+  tags:
+  - Worksheets
+  properties:
+  - type: OpenAPI
+    url: openapi/advanced-excel-worksheets-api-openapi.yml
+  - type: Documentation
+    url: https://learn.microsoft.com/en-us/graph/api/resources/excel
+  - type: JSONSchema
+    url: json-schema/
+  - type: JSONStructure
+    url: json-structure/
+  - type: JSONLD
+    url: json-ld/microsoft-graph-excel-api-context.jsonld
+  - type: Vocabulary
+    url: vocabulary/advanced-excel-vocabulary.yaml
 integrations:
   - name: Microsoft
   - name: Two people looking at a computer.
@@ -61,6 +148,8 @@ maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
 common:
+  - type: PostmanWorkspace
+    url: https://www.postman.com/kinlaneapi/advanced-excel/overview
   - type: AgenticAccess
     url: agentic-access/advanced-excel-agentic-access.yml
   - type: TrustCenter
