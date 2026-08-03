@@ -1,0 +1,495 @@
+{
+  "info": {
+    "_postman_id": "2dd53cc3-eead-402b-a13d-17cf587f87ba",
+    "name": "Microsoft Graph Excel Charts Ranges API",
+    "description": "The Microsoft Graph Excel API provides REST access to Excel workbooks stored in OneDrive, SharePoint, or Teams. Supports reading and writing cell values, executing formulas, managing worksheets, creating charts and tables, and running workbook sessions for transactional batch operations on Excel files.\n\nContact Support:\n Name: Microsoft Graph Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T00:28:15.000Z",
+    "updatedAt": "2026-07-28T00:28:15.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-2dd53cc3-eead-402b-a13d-17cf587f87ba"
+  },
+  "item": [
+    {
+      "name": "me",
+      "item": [
+        {
+          "name": "drive",
+          "item": [
+            {
+              "name": "items",
+              "item": [
+                {
+                  "name": "{driveItemId}",
+                  "item": [
+                    {
+                      "name": "workbook",
+                      "item": [
+                        {
+                          "name": "worksheets",
+                          "item": [
+                            {
+                              "name": "{worksheetId}",
+                              "item": [
+                                {
+                                  "name": "range(address='{address}')",
+                                  "item": [
+                                    {
+                                      "name": "Microsoft Excel Get Cell Range Values",
+                                      "id": "65d6222f-775b-4d03-90f0-38f05147e968",
+                                      "protocolProfileBehavior": {
+                                        "disableBodyPruning": true
+                                      },
+                                      "request": {
+                                        "method": "GET",
+                                        "header": [
+                                          {
+                                            "key": "Accept",
+                                            "value": "application/json"
+                                          }
+                                        ],
+                                        "url": {
+                                          "raw": "{{baseUrl}}/me/drive/items/:driveItemId/workbook/worksheets/:worksheetId/range(address='{{address}}')",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "me",
+                                            "drive",
+                                            "items",
+                                            ":driveItemId",
+                                            "workbook",
+                                            "worksheets",
+                                            ":worksheetId",
+                                            "range(address='{{address}}')"
+                                          ],
+                                          "variable": [
+                                            {
+                                              "id": "273b84b8-5b66-4ca9-a01e-7799c0ebdb77",
+                                              "key": "driveItemId",
+                                              "value": "<string>",
+                                              "description": "(Required) OneDrive item ID of the Excel workbook."
+                                            },
+                                            {
+                                              "id": "20cf0b5a-d8f2-44fe-9103-f17ebe18b8ca",
+                                              "key": "worksheetId",
+                                              "value": "<string>",
+                                              "description": "(Required) Worksheet ID or name."
+                                            }
+                                          ]
+                                        },
+                                        "description": "Retrieve cell values, formulas, and formatting for a specified range in a worksheet."
+                                      },
+                                      "response": [
+                                        {
+                                          "id": "5eee702f-ea75-4871-9c4a-61df8642acb2",
+                                          "name": "Range data including values, formulas, and format.",
+                                          "originalRequest": {
+                                            "method": "GET",
+                                            "header": [
+                                              {
+                                                "key": "Accept",
+                                                "value": "application/json"
+                                              },
+                                              {
+                                                "description": "Added as a part of security scheme: oauth2",
+                                                "key": "Authorization",
+                                                "value": "<token>"
+                                              }
+                                            ],
+                                            "url": {
+                                              "raw": "{{baseUrl}}/me/drive/items/:driveItemId/workbook/worksheets/:worksheetId/range(address='{{address}}')",
+                                              "host": [
+                                                "{{baseUrl}}"
+                                              ],
+                                              "path": [
+                                                "me",
+                                                "drive",
+                                                "items",
+                                                ":driveItemId",
+                                                "workbook",
+                                                "worksheets",
+                                                ":worksheetId",
+                                                "range(address='{{address}}')"
+                                              ],
+                                              "variable": [
+                                                {
+                                                  "key": "driveItemId"
+                                                },
+                                                {
+                                                  "key": "worksheetId"
+                                                }
+                                              ]
+                                            }
+                                          },
+                                          "status": "OK",
+                                          "code": 200,
+                                          "_postman_previewlanguage": "json",
+                                          "header": [
+                                            {
+                                              "key": "Content-Type",
+                                              "value": "application/json"
+                                            }
+                                          ],
+                                          "cookie": [],
+                                          "responseTime": null,
+                                          "body": "{\n  \"address\": \"<string>\",\n  \"values\": [\n    [\n      \"<string>\",\n      \"<string>\"\n    ],\n    [\n      \"<string>\",\n      \"<string>\"\n    ]\n  ],\n  \"formulas\": [\n    [\n      \"<string>\",\n      \"<string>\"\n    ],\n    [\n      \"<string>\",\n      \"<string>\"\n    ]\n  ]\n}",
+                                          "createdAt": "2026-07-28T00:28:16.000Z",
+                                          "updatedAt": "2026-07-28T00:28:16.000Z",
+                                          "uid": "35240-5eee702f-ea75-4871-9c4a-61df8642acb2"
+                                        },
+                                        {
+                                          "id": "1377cbf8-f370-40e1-9862-8af5e33a7d78",
+                                          "name": "Unauthorized.",
+                                          "originalRequest": {
+                                            "method": "GET",
+                                            "header": [
+                                              {
+                                                "key": "Accept",
+                                                "value": "application/json"
+                                              },
+                                              {
+                                                "description": "Added as a part of security scheme: oauth2",
+                                                "key": "Authorization",
+                                                "value": "<token>"
+                                              }
+                                            ],
+                                            "url": {
+                                              "raw": "{{baseUrl}}/me/drive/items/:driveItemId/workbook/worksheets/:worksheetId/range(address='{{address}}')",
+                                              "host": [
+                                                "{{baseUrl}}"
+                                              ],
+                                              "path": [
+                                                "me",
+                                                "drive",
+                                                "items",
+                                                ":driveItemId",
+                                                "workbook",
+                                                "worksheets",
+                                                ":worksheetId",
+                                                "range(address='{{address}}')"
+                                              ],
+                                              "variable": [
+                                                {
+                                                  "key": "driveItemId"
+                                                },
+                                                {
+                                                  "key": "worksheetId"
+                                                }
+                                              ]
+                                            }
+                                          },
+                                          "status": "Unauthorized",
+                                          "code": 401,
+                                          "_postman_previewlanguage": "json",
+                                          "header": [
+                                            {
+                                              "key": "Content-Type",
+                                              "value": "application/json"
+                                            }
+                                          ],
+                                          "cookie": [],
+                                          "responseTime": null,
+                                          "body": "{\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\"\n  }\n}",
+                                          "createdAt": "2026-07-28T00:28:16.000Z",
+                                          "updatedAt": "2026-07-28T00:28:16.000Z",
+                                          "uid": "35240-1377cbf8-f370-40e1-9862-8af5e33a7d78"
+                                        }
+                                      ],
+                                      "createdAt": "2026-07-28T00:28:16.000Z",
+                                      "updatedAt": "2026-07-28T00:28:16.000Z",
+                                      "uid": "35240-65d6222f-775b-4d03-90f0-38f05147e968"
+                                    },
+                                    {
+                                      "name": "Microsoft Excel Update Cell Range Values",
+                                      "id": "6c789494-b5b6-4fa2-a871-9e2a57e910cd",
+                                      "protocolProfileBehavior": {
+                                        "disableBodyPruning": true
+                                      },
+                                      "request": {
+                                        "method": "PATCH",
+                                        "header": [
+                                          {
+                                            "key": "Content-Type",
+                                            "value": "application/json"
+                                          },
+                                          {
+                                            "key": "Accept",
+                                            "value": "application/json"
+                                          }
+                                        ],
+                                        "body": {
+                                          "mode": "raw",
+                                          "raw": "{\n  \"values\": [\n    [\n      \"<string>\",\n      \"<string>\"\n    ],\n    [\n      \"<string>\",\n      \"<string>\"\n    ]\n  ]\n}",
+                                          "options": {
+                                            "raw": {
+                                              "headerFamily": "json",
+                                              "language": "json"
+                                            }
+                                          }
+                                        },
+                                        "url": {
+                                          "raw": "{{baseUrl}}/me/drive/items/:driveItemId/workbook/worksheets/:worksheetId/range(address='{{address}}')",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "me",
+                                            "drive",
+                                            "items",
+                                            ":driveItemId",
+                                            "workbook",
+                                            "worksheets",
+                                            ":worksheetId",
+                                            "range(address='{{address}}')"
+                                          ],
+                                          "variable": [
+                                            {
+                                              "id": "9e51a702-48a3-48aa-bc53-be225e067cfa",
+                                              "key": "driveItemId",
+                                              "value": "<string>",
+                                              "description": "(Required) OneDrive item ID of the Excel workbook."
+                                            },
+                                            {
+                                              "id": "f91b28ec-6912-4413-81ae-9fd001144814",
+                                              "key": "worksheetId",
+                                              "value": "<string>",
+                                              "description": "(Required) Worksheet ID or name."
+                                            }
+                                          ]
+                                        },
+                                        "description": "Write values or formulas to a specified cell range in a worksheet."
+                                      },
+                                      "response": [
+                                        {
+                                          "id": "0669bffa-c6ce-42aa-8db4-583ba96336e4",
+                                          "name": "Updated range.",
+                                          "originalRequest": {
+                                            "method": "PATCH",
+                                            "header": [
+                                              {
+                                                "key": "Content-Type",
+                                                "value": "application/json"
+                                              },
+                                              {
+                                                "key": "Accept",
+                                                "value": "application/json"
+                                              },
+                                              {
+                                                "description": "Added as a part of security scheme: oauth2",
+                                                "key": "Authorization",
+                                                "value": "<token>"
+                                              }
+                                            ],
+                                            "body": {
+                                              "mode": "raw",
+                                              "raw": "{\n  \"values\": [\n    [\n      \"<string>\",\n      \"<string>\"\n    ],\n    [\n      \"<string>\",\n      \"<string>\"\n    ]\n  ]\n}",
+                                              "options": {
+                                                "raw": {
+                                                  "headerFamily": "json",
+                                                  "language": "json"
+                                                }
+                                              }
+                                            },
+                                            "url": {
+                                              "raw": "{{baseUrl}}/me/drive/items/:driveItemId/workbook/worksheets/:worksheetId/range(address='{{address}}')",
+                                              "host": [
+                                                "{{baseUrl}}"
+                                              ],
+                                              "path": [
+                                                "me",
+                                                "drive",
+                                                "items",
+                                                ":driveItemId",
+                                                "workbook",
+                                                "worksheets",
+                                                ":worksheetId",
+                                                "range(address='{{address}}')"
+                                              ],
+                                              "variable": [
+                                                {
+                                                  "key": "driveItemId"
+                                                },
+                                                {
+                                                  "key": "worksheetId"
+                                                }
+                                              ]
+                                            }
+                                          },
+                                          "status": "OK",
+                                          "code": 200,
+                                          "_postman_previewlanguage": "json",
+                                          "header": [
+                                            {
+                                              "key": "Content-Type",
+                                              "value": "application/json"
+                                            }
+                                          ],
+                                          "cookie": [],
+                                          "responseTime": null,
+                                          "body": "{\n  \"address\": \"<string>\",\n  \"values\": [\n    [\n      \"<string>\",\n      \"<string>\"\n    ],\n    [\n      \"<string>\",\n      \"<string>\"\n    ]\n  ],\n  \"formulas\": [\n    [\n      \"<string>\",\n      \"<string>\"\n    ],\n    [\n      \"<string>\",\n      \"<string>\"\n    ]\n  ]\n}",
+                                          "createdAt": "2026-07-28T00:28:16.000Z",
+                                          "updatedAt": "2026-07-28T00:28:16.000Z",
+                                          "uid": "35240-0669bffa-c6ce-42aa-8db4-583ba96336e4"
+                                        },
+                                        {
+                                          "id": "8d36f34b-afe4-42de-8e06-6a9c4fbe6bef",
+                                          "name": "Unauthorized.",
+                                          "originalRequest": {
+                                            "method": "PATCH",
+                                            "header": [
+                                              {
+                                                "key": "Content-Type",
+                                                "value": "application/json"
+                                              },
+                                              {
+                                                "key": "Accept",
+                                                "value": "application/json"
+                                              },
+                                              {
+                                                "description": "Added as a part of security scheme: oauth2",
+                                                "key": "Authorization",
+                                                "value": "<token>"
+                                              }
+                                            ],
+                                            "body": {
+                                              "mode": "raw",
+                                              "raw": "{\n  \"values\": [\n    [\n      \"<string>\",\n      \"<string>\"\n    ],\n    [\n      \"<string>\",\n      \"<string>\"\n    ]\n  ]\n}",
+                                              "options": {
+                                                "raw": {
+                                                  "headerFamily": "json",
+                                                  "language": "json"
+                                                }
+                                              }
+                                            },
+                                            "url": {
+                                              "raw": "{{baseUrl}}/me/drive/items/:driveItemId/workbook/worksheets/:worksheetId/range(address='{{address}}')",
+                                              "host": [
+                                                "{{baseUrl}}"
+                                              ],
+                                              "path": [
+                                                "me",
+                                                "drive",
+                                                "items",
+                                                ":driveItemId",
+                                                "workbook",
+                                                "worksheets",
+                                                ":worksheetId",
+                                                "range(address='{{address}}')"
+                                              ],
+                                              "variable": [
+                                                {
+                                                  "key": "driveItemId"
+                                                },
+                                                {
+                                                  "key": "worksheetId"
+                                                }
+                                              ]
+                                            }
+                                          },
+                                          "status": "Unauthorized",
+                                          "code": 401,
+                                          "_postman_previewlanguage": "json",
+                                          "header": [
+                                            {
+                                              "key": "Content-Type",
+                                              "value": "application/json"
+                                            }
+                                          ],
+                                          "cookie": [],
+                                          "responseTime": null,
+                                          "body": "{\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\"\n  }\n}",
+                                          "createdAt": "2026-07-28T00:28:16.000Z",
+                                          "updatedAt": "2026-07-28T00:28:16.000Z",
+                                          "uid": "35240-8d36f34b-afe4-42de-8e06-6a9c4fbe6bef"
+                                        }
+                                      ],
+                                      "createdAt": "2026-07-28T00:28:16.000Z",
+                                      "updatedAt": "2026-07-28T00:28:16.000Z",
+                                      "uid": "35240-6c789494-b5b6-4fa2-a871-9e2a57e910cd"
+                                    }
+                                  ],
+                                  "id": "cd8593f0-8b6e-45ec-a80f-f3e45eea931c",
+                                  "createdAt": "2026-07-28T00:28:16.000Z",
+                                  "updatedAt": "2026-07-28T00:28:16.000Z",
+                                  "uid": "35240-cd8593f0-8b6e-45ec-a80f-f3e45eea931c"
+                                }
+                              ],
+                              "id": "0968c806-43a4-4121-8e5e-25deb9f8d932",
+                              "createdAt": "2026-07-28T00:28:16.000Z",
+                              "updatedAt": "2026-07-28T00:28:16.000Z",
+                              "uid": "35240-0968c806-43a4-4121-8e5e-25deb9f8d932"
+                            }
+                          ],
+                          "id": "8dd26627-1418-4fdf-a658-40a5220fd425",
+                          "createdAt": "2026-07-28T00:28:16.000Z",
+                          "updatedAt": "2026-07-28T00:28:16.000Z",
+                          "uid": "35240-8dd26627-1418-4fdf-a658-40a5220fd425"
+                        }
+                      ],
+                      "id": "60c6a904-d856-490a-b28d-74a7373b2285",
+                      "createdAt": "2026-07-28T00:28:16.000Z",
+                      "updatedAt": "2026-07-28T00:28:16.000Z",
+                      "uid": "35240-60c6a904-d856-490a-b28d-74a7373b2285"
+                    }
+                  ],
+                  "id": "7481e63e-12b2-4642-a61e-d94718f6aa62",
+                  "createdAt": "2026-07-28T00:28:16.000Z",
+                  "updatedAt": "2026-07-28T00:28:16.000Z",
+                  "uid": "35240-7481e63e-12b2-4642-a61e-d94718f6aa62"
+                }
+              ],
+              "id": "84faf31d-a708-45fb-bfb7-4b847b39b6aa",
+              "createdAt": "2026-07-28T00:28:16.000Z",
+              "updatedAt": "2026-07-28T00:28:16.000Z",
+              "uid": "35240-84faf31d-a708-45fb-bfb7-4b847b39b6aa"
+            }
+          ],
+          "id": "45b96624-4a63-4545-86fb-fcab1a0d92d8",
+          "createdAt": "2026-07-28T00:28:16.000Z",
+          "updatedAt": "2026-07-28T00:28:16.000Z",
+          "uid": "35240-45b96624-4a63-4545-86fb-fcab1a0d92d8"
+        }
+      ],
+      "id": "00a35aaa-d5cb-47b9-9a09-f09e98e63bd7",
+      "createdAt": "2026-07-28T00:28:16.000Z",
+      "updatedAt": "2026-07-28T00:28:16.000Z",
+      "uid": "35240-00a35aaa-d5cb-47b9-9a09-f09e98e63bd7"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "Files.ReadWrite Files.ReadWrite.All",
+        "type": "string"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://login.microsoftonline.com/common/oauth2/v2.0/token",
+        "type": "string"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://login.microsoftonline.com/common/oauth2/v2.0/authorize",
+        "type": "string"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://graph.microsoft.com/v1.0"
+    },
+    {
+      "key": "address",
+      "value": "<string>"
+    }
+  ]
+}

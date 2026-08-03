@@ -1,0 +1,437 @@
+{
+  "info": {
+    "_postman_id": "c424169f-36d3-4bf5-ab82-877c4dbc2b82",
+    "name": "Microsoft Graph Excel Charts Worksheets API",
+    "description": "The Microsoft Graph Excel API provides REST access to Excel workbooks stored in OneDrive, SharePoint, or Teams. Supports reading and writing cell values, executing formulas, managing worksheets, creating charts and tables, and running workbook sessions for transactional batch operations on Excel files.\n\nContact Support:\n Name: Microsoft Graph Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T00:28:35.000Z",
+    "updatedAt": "2026-07-28T00:28:36.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-c424169f-36d3-4bf5-ab82-877c4dbc2b82"
+  },
+  "item": [
+    {
+      "name": "me",
+      "item": [
+        {
+          "name": "drive",
+          "item": [
+            {
+              "name": "items",
+              "item": [
+                {
+                  "name": "{driveItemId}",
+                  "item": [
+                    {
+                      "name": "workbook",
+                      "item": [
+                        {
+                          "name": "worksheets",
+                          "item": [
+                            {
+                              "name": "Microsoft Excel List Worksheets",
+                              "id": "24a8bd62-65e9-486f-aed3-7dea32df85b3",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/me/drive/items/:driveItemId/workbook/worksheets",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "me",
+                                    "drive",
+                                    "items",
+                                    ":driveItemId",
+                                    "workbook",
+                                    "worksheets"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "b15111bb-80c0-4fd6-bc1f-24ed6af4ce4f",
+                                      "key": "driveItemId",
+                                      "value": "<string>",
+                                      "description": "(Required) OneDrive item ID of the Excel workbook."
+                                    }
+                                  ]
+                                },
+                                "description": "Retrieve a list of worksheets in an Excel workbook stored in OneDrive."
+                              },
+                              "response": [
+                                {
+                                  "id": "e39ddbe5-f6cf-4718-a24e-8ee3bdb69883",
+                                  "name": "List of worksheets.",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: oauth2",
+                                        "key": "Authorization",
+                                        "value": "<token>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/me/drive/items/:driveItemId/workbook/worksheets",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "me",
+                                        "drive",
+                                        "items",
+                                        ":driveItemId",
+                                        "workbook",
+                                        "worksheets"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "driveItemId"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "OK",
+                                  "code": 200,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"value\": [\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"position\": \"<integer>\",\n      \"visibility\": \"Visible\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"position\": \"<integer>\",\n      \"visibility\": \"VeryHidden\"\n    }\n  ]\n}",
+                                  "createdAt": "2026-07-28T00:28:36.000Z",
+                                  "updatedAt": "2026-07-28T00:28:36.000Z",
+                                  "uid": "35240-e39ddbe5-f6cf-4718-a24e-8ee3bdb69883"
+                                },
+                                {
+                                  "id": "abf3232b-59d4-423a-9bbe-11847005f67e",
+                                  "name": "Unauthorized.",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: oauth2",
+                                        "key": "Authorization",
+                                        "value": "<token>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/me/drive/items/:driveItemId/workbook/worksheets",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "me",
+                                        "drive",
+                                        "items",
+                                        ":driveItemId",
+                                        "workbook",
+                                        "worksheets"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "driveItemId"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Unauthorized",
+                                  "code": 401,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\"\n  }\n}",
+                                  "createdAt": "2026-07-28T00:28:36.000Z",
+                                  "updatedAt": "2026-07-28T00:28:36.000Z",
+                                  "uid": "35240-abf3232b-59d4-423a-9bbe-11847005f67e"
+                                }
+                              ],
+                              "createdAt": "2026-07-28T00:28:36.000Z",
+                              "updatedAt": "2026-07-28T00:28:36.000Z",
+                              "uid": "35240-24a8bd62-65e9-486f-aed3-7dea32df85b3"
+                            },
+                            {
+                              "name": "Microsoft Excel Add Worksheet",
+                              "id": "a4f0b79f-ff6c-4a0f-bcdc-4c948378540e",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"name\": \"<string>\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/me/drive/items/:driveItemId/workbook/worksheets",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "me",
+                                    "drive",
+                                    "items",
+                                    ":driveItemId",
+                                    "workbook",
+                                    "worksheets"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "db99e632-3034-4648-a02c-1a9ec75d7185",
+                                      "key": "driveItemId",
+                                      "value": "<string>",
+                                      "description": "(Required) OneDrive item ID of the Excel workbook."
+                                    }
+                                  ]
+                                },
+                                "description": "Add a new worksheet to an Excel workbook."
+                              },
+                              "response": [
+                                {
+                                  "id": "aa541e40-9f52-49ee-aeda-ce4e4c63bdba",
+                                  "name": "Worksheet created.",
+                                  "originalRequest": {
+                                    "method": "POST",
+                                    "header": [
+                                      {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: oauth2",
+                                        "key": "Authorization",
+                                        "value": "<token>"
+                                      }
+                                    ],
+                                    "body": {
+                                      "mode": "raw",
+                                      "raw": "{\n  \"name\": \"<string>\"\n}",
+                                      "options": {
+                                        "raw": {
+                                          "headerFamily": "json",
+                                          "language": "json"
+                                        }
+                                      }
+                                    },
+                                    "url": {
+                                      "raw": "{{baseUrl}}/me/drive/items/:driveItemId/workbook/worksheets",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "me",
+                                        "drive",
+                                        "items",
+                                        ":driveItemId",
+                                        "workbook",
+                                        "worksheets"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "driveItemId"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Created",
+                                  "code": 201,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"position\": \"<integer>\",\n  \"visibility\": \"Hidden\"\n}",
+                                  "createdAt": "2026-07-28T00:28:36.000Z",
+                                  "updatedAt": "2026-07-28T00:28:36.000Z",
+                                  "uid": "35240-aa541e40-9f52-49ee-aeda-ce4e4c63bdba"
+                                },
+                                {
+                                  "id": "502a129b-e86b-4354-b577-0d905f673b08",
+                                  "name": "Unauthorized.",
+                                  "originalRequest": {
+                                    "method": "POST",
+                                    "header": [
+                                      {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: oauth2",
+                                        "key": "Authorization",
+                                        "value": "<token>"
+                                      }
+                                    ],
+                                    "body": {
+                                      "mode": "raw",
+                                      "raw": "{\n  \"name\": \"<string>\"\n}",
+                                      "options": {
+                                        "raw": {
+                                          "headerFamily": "json",
+                                          "language": "json"
+                                        }
+                                      }
+                                    },
+                                    "url": {
+                                      "raw": "{{baseUrl}}/me/drive/items/:driveItemId/workbook/worksheets",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "me",
+                                        "drive",
+                                        "items",
+                                        ":driveItemId",
+                                        "workbook",
+                                        "worksheets"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "driveItemId"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Unauthorized",
+                                  "code": 401,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\"\n  }\n}",
+                                  "createdAt": "2026-07-28T00:28:36.000Z",
+                                  "updatedAt": "2026-07-28T00:28:36.000Z",
+                                  "uid": "35240-502a129b-e86b-4354-b577-0d905f673b08"
+                                }
+                              ],
+                              "createdAt": "2026-07-28T00:28:36.000Z",
+                              "updatedAt": "2026-07-28T00:28:36.000Z",
+                              "uid": "35240-a4f0b79f-ff6c-4a0f-bcdc-4c948378540e"
+                            }
+                          ],
+                          "id": "ff9a10d6-eb1c-41ac-a9d3-c9addbe5f8a2",
+                          "createdAt": "2026-07-28T00:28:36.000Z",
+                          "updatedAt": "2026-07-28T00:28:36.000Z",
+                          "uid": "35240-ff9a10d6-eb1c-41ac-a9d3-c9addbe5f8a2"
+                        }
+                      ],
+                      "id": "01ba5f18-580a-4380-88ee-168e9ea06ead",
+                      "createdAt": "2026-07-28T00:28:36.000Z",
+                      "updatedAt": "2026-07-28T00:28:36.000Z",
+                      "uid": "35240-01ba5f18-580a-4380-88ee-168e9ea06ead"
+                    }
+                  ],
+                  "id": "b2432877-d354-407e-b102-0c5286aff5fc",
+                  "createdAt": "2026-07-28T00:28:36.000Z",
+                  "updatedAt": "2026-07-28T00:28:36.000Z",
+                  "uid": "35240-b2432877-d354-407e-b102-0c5286aff5fc"
+                }
+              ],
+              "id": "07fac59f-9013-4c77-ab92-0ea218f2e9e6",
+              "createdAt": "2026-07-28T00:28:36.000Z",
+              "updatedAt": "2026-07-28T00:28:36.000Z",
+              "uid": "35240-07fac59f-9013-4c77-ab92-0ea218f2e9e6"
+            }
+          ],
+          "id": "fed43783-fe64-4d44-a101-2b83ac5d5315",
+          "createdAt": "2026-07-28T00:28:36.000Z",
+          "updatedAt": "2026-07-28T00:28:36.000Z",
+          "uid": "35240-fed43783-fe64-4d44-a101-2b83ac5d5315"
+        }
+      ],
+      "id": "0c5cef9c-059b-404f-8949-91e8893e2f14",
+      "createdAt": "2026-07-28T00:28:36.000Z",
+      "updatedAt": "2026-07-28T00:28:36.000Z",
+      "uid": "35240-0c5cef9c-059b-404f-8949-91e8893e2f14"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "Files.ReadWrite Files.ReadWrite.All",
+        "type": "string"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://login.microsoftonline.com/common/oauth2/v2.0/token",
+        "type": "string"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://login.microsoftonline.com/common/oauth2/v2.0/authorize",
+        "type": "string"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://graph.microsoft.com/v1.0"
+    }
+  ]
+}

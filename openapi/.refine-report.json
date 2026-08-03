@@ -1,0 +1,22 @@
+{
+  "provider": "advanced-excel",
+  "sources": [
+    "advanced-excel-charts-api-openapi.yml",
+    "advanced-excel-ranges-api-openapi.yml",
+    "advanced-excel-tables-api-openapi.yml",
+    "advanced-excel-workbooks-api-openapi.yml",
+    "advanced-excel-worksheets-api-openapi.yml"
+  ],
+  "outputs": [
+    "advanced-excel-charts-api-openapi.yml",
+    "advanced-excel-ranges-api-openapi.yml",
+    "advanced-excel-tables-api-openapi.yml",
+    "advanced-excel-workbooks-api-openapi.yml",
+    "advanced-excel-worksheets-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
