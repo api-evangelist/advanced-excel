@@ -1,0 +1,72 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Microsoft Graph Excel Charts Worksheets API",
+    "version": "v1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "authorization_code",
+      "authorizationUrl": "https://login.microsoftonline.com/common/oauth2/v2.0/authorize",
+      "accessTokenUrl": "https://login.microsoftonline.com/common/oauth2/v2.0/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Worksheets",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Microsoft Excel List Worksheets",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://graph.microsoft.com/v1.0/me/drive/items/:driveItemId/workbook/worksheets",
+            "params": [
+              {
+                "name": "driveItemId",
+                "value": "",
+                "type": "path",
+                "description": "OneDrive item ID of the Excel workbook."
+              }
+            ]
+          },
+          "docs": "Retrieve a list of worksheets in an Excel workbook stored in OneDrive."
+        },
+        {
+          "info": {
+            "name": "Microsoft Excel Add Worksheet",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://graph.microsoft.com/v1.0/me/drive/items/:driveItemId/workbook/worksheets",
+            "params": [
+              {
+                "name": "driveItemId",
+                "value": "",
+                "type": "path",
+                "description": "OneDrive item ID of the Excel workbook."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add a new worksheet to an Excel workbook."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

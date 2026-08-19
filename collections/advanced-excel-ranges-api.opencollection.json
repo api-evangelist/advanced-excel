@@ -1,0 +1,96 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Microsoft Graph Excel Charts Ranges API",
+    "version": "v1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "authorization_code",
+      "authorizationUrl": "https://login.microsoftonline.com/common/oauth2/v2.0/authorize",
+      "accessTokenUrl": "https://login.microsoftonline.com/common/oauth2/v2.0/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Ranges",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Microsoft Excel Get Cell Range Values",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://graph.microsoft.com/v1.0/me/drive/items/:driveItemId/workbook/worksheets/:worksheetId/range(address=':address')",
+            "params": [
+              {
+                "name": "driveItemId",
+                "value": "",
+                "type": "path",
+                "description": "OneDrive item ID of the Excel workbook."
+              },
+              {
+                "name": "worksheetId",
+                "value": "",
+                "type": "path",
+                "description": "Worksheet ID or name."
+              },
+              {
+                "name": "address",
+                "value": "",
+                "type": "path",
+                "description": "Cell range address (e.g., A1:D10)."
+              }
+            ]
+          },
+          "docs": "Retrieve cell values, formulas, and formatting for a specified range in a worksheet."
+        },
+        {
+          "info": {
+            "name": "Microsoft Excel Update Cell Range Values",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://graph.microsoft.com/v1.0/me/drive/items/:driveItemId/workbook/worksheets/:worksheetId/range(address=':address')",
+            "params": [
+              {
+                "name": "driveItemId",
+                "value": "",
+                "type": "path",
+                "description": "OneDrive item ID of the Excel workbook."
+              },
+              {
+                "name": "worksheetId",
+                "value": "",
+                "type": "path",
+                "description": "Worksheet ID or name."
+              },
+              {
+                "name": "address",
+                "value": "",
+                "type": "path",
+                "description": "Cell range address (e.g., A1:D10)."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Write values or formulas to a specified cell range in a worksheet."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,84 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Microsoft Graph Excel Charts API",
+    "version": "v1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "authorization_code",
+      "authorizationUrl": "https://login.microsoftonline.com/common/oauth2/v2.0/authorize",
+      "accessTokenUrl": "https://login.microsoftonline.com/common/oauth2/v2.0/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Charts",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Microsoft Excel List Worksheet Charts",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://graph.microsoft.com/v1.0/me/drive/items/:driveItemId/workbook/worksheets/:worksheetId/charts",
+            "params": [
+              {
+                "name": "driveItemId",
+                "value": "",
+                "type": "path",
+                "description": "OneDrive item ID of the Excel workbook."
+              },
+              {
+                "name": "worksheetId",
+                "value": "",
+                "type": "path",
+                "description": "Worksheet ID or name."
+              }
+            ]
+          },
+          "docs": "List all charts in an Excel worksheet."
+        },
+        {
+          "info": {
+            "name": "Microsoft Excel Add Chart to Worksheet",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://graph.microsoft.com/v1.0/me/drive/items/:driveItemId/workbook/worksheets/:worksheetId/charts",
+            "params": [
+              {
+                "name": "driveItemId",
+                "value": "",
+                "type": "path",
+                "description": "OneDrive item ID of the Excel workbook."
+              },
+              {
+                "name": "worksheetId",
+                "value": "",
+                "type": "path",
+                "description": "Worksheet ID or name."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new chart in an Excel worksheet from a specified data range."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
