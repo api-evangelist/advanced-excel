@@ -1,4 +1,4 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
   title: Microsoft Graph Excel Charts API
   description: The Microsoft Graph Excel API provides REST access to Excel workbooks stored in OneDrive, SharePoint, or Teams. Supports reading and writing cell values, executing formulas, managing worksheets, creating charts and tables, and running workbook sessions for transactional batch operations on Excel files.
@@ -168,6 +168,15 @@ components:
           type: number
           description: Chart width in points.
           example: 500
+    ChartList:
+      type: object
+      description: List of charts.
+      properties:
+        value:
+          type: array
+          description: Array of charts.
+          items:
+            $ref: '#/components/schemas/Chart'
     ErrorResponse:
       type: object
       description: Microsoft Graph API error response.
@@ -204,15 +213,6 @@ components:
           - Columns
           - Rows
           example: Auto
-    ChartList:
-      type: object
-      description: List of charts.
-      properties:
-        value:
-          type: array
-          description: Array of charts.
-          items:
-            $ref: '#/components/schemas/Chart'
   securitySchemes:
     oauth2:
       type: oauth2

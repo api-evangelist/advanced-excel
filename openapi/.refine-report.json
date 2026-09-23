@@ -1,11 +1,7 @@
 {
   "provider": "advanced-excel",
   "sources": [
-    "advanced-excel-charts-api-openapi.yml",
-    "advanced-excel-ranges-api-openapi.yml",
-    "advanced-excel-tables-api-openapi.yml",
-    "advanced-excel-workbooks-api-openapi.yml",
-    "advanced-excel-worksheets-api-openapi.yml"
+    "_original/microsoft-graph-excel-api-openapi.yml"
   ],
   "outputs": [
     "advanced-excel-charts-api-openapi.yml",
@@ -17,6 +13,16 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "microsoft-graph-excel-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "advanced-excel-charts-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "advanced-excel-ranges-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "advanced-excel-tables-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "advanced-excel-workbooks-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "advanced-excel-worksheets-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

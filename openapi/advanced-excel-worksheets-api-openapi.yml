@@ -1,6 +1,6 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: Microsoft Graph Excel Charts Worksheets API
+  title: Microsoft Graph Excel Worksheets API
   description: The Microsoft Graph Excel API provides REST access to Excel workbooks stored in OneDrive, SharePoint, or Teams. Supports reading and writing cell values, executing formulas, managing worksheets, creating charts and tables, and running workbook sessions for transactional batch operations on Excel files.
   version: v1.0
   contact:
@@ -128,6 +128,23 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
+    WorksheetList:
+      type: object
+      description: List of worksheets.
+      properties:
+        value:
+          type: array
+          description: Array of worksheets.
+          items:
+            $ref: '#/components/schemas/Worksheet'
+    WorksheetInput:
+      type: object
+      description: Request to add a new worksheet.
+      properties:
+        name:
+          type: string
+          description: Name for the new worksheet.
+          example: Sales Data
     Worksheet:
       type: object
       description: An Excel worksheet.
@@ -152,23 +169,6 @@ components:
           - Hidden
           - VeryHidden
           example: Visible
-    WorksheetList:
-      type: object
-      description: List of worksheets.
-      properties:
-        value:
-          type: array
-          description: Array of worksheets.
-          items:
-            $ref: '#/components/schemas/Worksheet'
-    WorksheetInput:
-      type: object
-      description: Request to add a new worksheet.
-      properties:
-        name:
-          type: string
-          description: Name for the new worksheet.
-          example: Sales Data
     ErrorResponse:
       type: object
       description: Microsoft Graph API error response.
