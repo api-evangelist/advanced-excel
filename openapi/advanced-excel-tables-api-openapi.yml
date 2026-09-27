@@ -75,6 +75,15 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
+    TableList:
+      type: object
+      description: List of tables.
+      properties:
+        value:
+          type: array
+          description: Array of tables.
+          items:
+            $ref: '#/components/schemas/Table'
     ErrorResponse:
       type: object
       description: Microsoft Graph API error response.
@@ -111,15 +120,6 @@ components:
           type: boolean
           description: Whether total row is shown.
           example: false
-    TableList:
-      type: object
-      description: List of tables.
-      properties:
-        value:
-          type: array
-          description: Array of tables.
-          items:
-            $ref: '#/components/schemas/Table'
   securitySchemes:
     oauth2:
       type: oauth2

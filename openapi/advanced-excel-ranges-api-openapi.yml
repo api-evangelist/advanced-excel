@@ -186,17 +186,6 @@ components:
             type: array
             items:
               type: string
-    RangeInput:
-      type: object
-      description: Request to write values to a range.
-      properties:
-        values:
-          type: array
-          description: 2D array of values to write.
-          items:
-            type: array
-            items:
-              type: string
     ErrorResponse:
       type: object
       description: Microsoft Graph API error response.
@@ -213,6 +202,17 @@ components:
               type: string
               description: Error message.
               example: Access token is missing or invalid.
+    RangeInput:
+      type: object
+      description: Request to write values to a range.
+      properties:
+        values:
+          type: array
+          description: 2D array of values to write.
+          items:
+            type: array
+            items:
+              type: string
   securitySchemes:
     oauth2:
       type: oauth2

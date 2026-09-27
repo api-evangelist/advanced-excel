@@ -128,23 +128,6 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
-    WorksheetList:
-      type: object
-      description: List of worksheets.
-      properties:
-        value:
-          type: array
-          description: Array of worksheets.
-          items:
-            $ref: '#/components/schemas/Worksheet'
-    WorksheetInput:
-      type: object
-      description: Request to add a new worksheet.
-      properties:
-        name:
-          type: string
-          description: Name for the new worksheet.
-          example: Sales Data
     Worksheet:
       type: object
       description: An Excel worksheet.
@@ -185,6 +168,23 @@ components:
               type: string
               description: Error message.
               example: Access token is missing or invalid.
+    WorksheetInput:
+      type: object
+      description: Request to add a new worksheet.
+      properties:
+        name:
+          type: string
+          description: Name for the new worksheet.
+          example: Sales Data
+    WorksheetList:
+      type: object
+      description: List of worksheets.
+      properties:
+        value:
+          type: array
+          description: Array of worksheets.
+          items:
+            $ref: '#/components/schemas/Worksheet'
   securitySchemes:
     oauth2:
       type: oauth2

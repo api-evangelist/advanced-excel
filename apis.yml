@@ -1,6 +1,7 @@
 aid: advanced-excel
 url: https://raw.githubusercontent.com/api-evangelist/advanced-excel/refs/heads/main/apis.yml
 name: Advanced Excel
+kind: topic
 type: Index
 deliveryModel:
   model: saas
