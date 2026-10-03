@@ -168,6 +168,26 @@ components:
           type: number
           description: Chart width in points.
           example: 500
+    ChartInput:
+      type: object
+      description: Request to create a chart.
+      properties:
+        type:
+          type: string
+          description: Chart type.
+          example: ColumnClustered
+        sourceData:
+          type: string
+          description: A1-style range address of the source data.
+          example: Sheet1!A1:B10
+        seriesBy:
+          type: string
+          description: How series are plotted.
+          enum:
+          - Auto
+          - Columns
+          - Rows
+          example: Auto
     ChartList:
       type: object
       description: List of charts.
@@ -193,26 +213,6 @@ components:
               type: string
               description: Error message.
               example: Access token is missing or invalid.
-    ChartInput:
-      type: object
-      description: Request to create a chart.
-      properties:
-        type:
-          type: string
-          description: Chart type.
-          example: ColumnClustered
-        sourceData:
-          type: string
-          description: A1-style range address of the source data.
-          example: Sheet1!A1:B10
-        seriesBy:
-          type: string
-          description: How series are plotted.
-          enum:
-          - Auto
-          - Columns
-          - Rows
-          example: Auto
   securitySchemes:
     oauth2:
       type: oauth2
