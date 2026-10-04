@@ -128,6 +128,30 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
+    Worksheet:
+      type: object
+      description: An Excel worksheet.
+      properties:
+        id:
+          type: string
+          description: Worksheet identifier.
+          example: sheet1
+        name:
+          type: string
+          description: Worksheet display name.
+          example: Sheet1
+        position:
+          type: integer
+          description: Zero-based index position of the worksheet.
+          example: 0
+        visibility:
+          type: string
+          description: Worksheet visibility.
+          enum:
+          - Visible
+          - Hidden
+          - VeryHidden
+          example: Visible
     WorksheetList:
       type: object
       description: List of worksheets.
@@ -161,30 +185,6 @@ components:
           type: string
           description: Name for the new worksheet.
           example: Sales Data
-    Worksheet:
-      type: object
-      description: An Excel worksheet.
-      properties:
-        id:
-          type: string
-          description: Worksheet identifier.
-          example: sheet1
-        name:
-          type: string
-          description: Worksheet display name.
-          example: Sheet1
-        position:
-          type: integer
-          description: Zero-based index position of the worksheet.
-          example: 0
-        visibility:
-          type: string
-          description: Worksheet visibility.
-          enum:
-          - Visible
-          - Hidden
-          - VeryHidden
-          example: Visible
   securitySchemes:
     oauth2:
       type: oauth2

@@ -164,13 +164,24 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
-    RangeInput:
+    Range:
       type: object
-      description: Request to write values to a range.
+      description: A cell range in a worksheet with values and formulas.
       properties:
+        address:
+          type: string
+          description: A1-style range address.
+          example: Sheet1!A1:B10
         values:
           type: array
-          description: 2D array of values to write.
+          description: 2D array of cell values.
+          items:
+            type: array
+            items:
+              type: string
+        formulas:
+          type: array
+          description: 2D array of cell formulas.
           items:
             type: array
             items:
@@ -191,24 +202,13 @@ components:
               type: string
               description: Error message.
               example: Access token is missing or invalid.
-    Range:
+    RangeInput:
       type: object
-      description: A cell range in a worksheet with values and formulas.
+      description: Request to write values to a range.
       properties:
-        address:
-          type: string
-          description: A1-style range address.
-          example: Sheet1!A1:B10
         values:
           type: array
-          description: 2D array of cell values.
-          items:
-            type: array
-            items:
-              type: string
-        formulas:
-          type: array
-          description: 2D array of cell formulas.
+          description: 2D array of values to write.
           items:
             type: array
             items:

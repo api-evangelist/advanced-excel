@@ -75,6 +75,22 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
+    ErrorResponse:
+      type: object
+      description: Microsoft Graph API error response.
+      properties:
+        error:
+          type: object
+          description: Error details.
+          properties:
+            code:
+              type: string
+              description: Error code.
+              example: Unauthorized
+            message:
+              type: string
+              description: Error message.
+              example: Access token is missing or invalid.
     Table:
       type: object
       description: An Excel table.
@@ -95,22 +111,6 @@ components:
           type: boolean
           description: Whether total row is shown.
           example: false
-    ErrorResponse:
-      type: object
-      description: Microsoft Graph API error response.
-      properties:
-        error:
-          type: object
-          description: Error details.
-          properties:
-            code:
-              type: string
-              description: Error code.
-              example: Unauthorized
-            message:
-              type: string
-              description: Error message.
-              example: Access token is missing or invalid.
     TableList:
       type: object
       description: List of tables.
