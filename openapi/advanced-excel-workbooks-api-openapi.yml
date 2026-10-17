@@ -79,14 +79,6 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
-    SessionInput:
-      type: object
-      description: Request to create a workbook session.
-      properties:
-        persistChanges:
-          type: boolean
-          description: Whether changes should be persisted to the workbook.
-          example: true
     Session:
       type: object
       description: A workbook session for batch operations.
@@ -115,6 +107,14 @@ components:
               type: string
               description: Error message.
               example: Access token is missing or invalid.
+    SessionInput:
+      type: object
+      description: Request to create a workbook session.
+      properties:
+        persistChanges:
+          type: boolean
+          description: Whether changes should be persisted to the workbook.
+          example: true
   securitySchemes:
     oauth2:
       type: oauth2

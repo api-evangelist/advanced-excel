@@ -152,15 +152,14 @@ components:
           - Hidden
           - VeryHidden
           example: Visible
-    WorksheetList:
+    WorksheetInput:
       type: object
-      description: List of worksheets.
+      description: Request to add a new worksheet.
       properties:
-        value:
-          type: array
-          description: Array of worksheets.
-          items:
-            $ref: '#/components/schemas/Worksheet'
+        name:
+          type: string
+          description: Name for the new worksheet.
+          example: Sales Data
     ErrorResponse:
       type: object
       description: Microsoft Graph API error response.
@@ -177,14 +176,15 @@ components:
               type: string
               description: Error message.
               example: Access token is missing or invalid.
-    WorksheetInput:
+    WorksheetList:
       type: object
-      description: Request to add a new worksheet.
+      description: List of worksheets.
       properties:
-        name:
-          type: string
-          description: Name for the new worksheet.
-          example: Sales Data
+        value:
+          type: array
+          description: Array of worksheets.
+          items:
+            $ref: '#/components/schemas/Worksheet'
   securitySchemes:
     oauth2:
       type: oauth2
