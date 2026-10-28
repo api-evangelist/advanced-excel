@@ -1,4 +1,4 @@
-# Advanced Excel (advanced-excel)
+# advanced-excel
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -64,71 +64,22 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Advanced Excel is a subject-matter topic encompassing Microsoft Excel's programmatic capabilities for data analysis, formula execution, workbook management, chart generation, and automation. This topic index covers REST APIs, open data schemas, and developer tools for working with Excel workbooks programmatically, including Microsoft Graph Excel API, open-source spreadsheet libraries, and data interchange formats used in business intelligence and automation workflows.
+## advanced-excel on APIs.io
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/advanced-excel/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/advanced-excel/refs/heads/main/apis.yml)
+Everything profiled for advanced-excel is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/advanced-excel/](https://apis.io/providers/advanced-excel/)** — or go straight to one of the APIs or properties below.
 
-## Scope
+## API Evangelist rating
 
-- **Type:** Index
+Not yet rated. See [apis.io/providers/advanced-excel/](https://apis.io/providers/advanced-excel/).
 
-## Tags
+## How this profile is made
 
-- Automation
-- Business Intelligence
-- Data Analysis
-- Data Processing
-- Excel
-- Microsoft
-- Spreadsheets
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
 
-## Timestamps
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for advanced-excel: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
 
-- **Created:** 2024-01-15
-- **Modified:** 2026-05-19
+## Open an issue
 
-## APIs
-
-### Microsoft Graph Excel API
-
-The Microsoft Graph Excel API provides REST access to Excel workbooks stored in OneDrive, SharePoint, or Teams. Supports reading and writing cell values, executing formulas, managing worksheets, creating charts and tables, and running workbook sessions for transactional batch operations.
-
-- **Human URL:** [https://learn.microsoft.com/en-us/graph/api/resources/excel](https://learn.microsoft.com/en-us/graph/api/resources/excel)
-- **Base URL:** `https://graph.microsoft.com/v1.0`
-
-#### Tags
-
-- Excel
-- Microsoft
-- OneDrive
-- REST API
-- Spreadsheets
-
-#### Properties
-
-- [Documentation](https://learn.microsoft.com/en-us/graph/api/resources/excel)
-- [OpenAPI](openapi/microsoft-graph-excel-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/microsoft-graph-excel-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/microsoft-graph-excel-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [JSON Schema](json-schema/) — [JSON Schema](https://json-schema.org/specification)
-- [JSON Structure](json-structure/)
-- [JSON-LD](json-ld/microsoft-graph-excel-api-context.jsonld) — [JSON-LD](https://www.w3.org/TR/json-ld11/)
-- [Vocabulary](vocabulary/advanced-excel-vocabulary.yaml)
-
-## Common Properties
-
-- [Website](https://www.microsoft.com/en-us/microsoft-365/excel)
-- [Documentation](https://learn.microsoft.com/en-us/graph/excel-concept-overview)
-- [Getting Started](https://learn.microsoft.com/en-us/graph/api/resources/excel)
-- [Terms of Service](https://www.microsoft.com/en-us/servicesagreement)
-- [Privacy Policy](https://privacy.microsoft.com/en-us/privacystatement)
-- [GitHub Organization](https://github.com/OfficeDev)
-- [Features](undefined)
-- [Use Cases](undefined)
-- [Integrations](undefined)
-- [Integrations](https://www.microsoft.com/en-us/marketplace)
-
-## Maintainers
-
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/advanced-excel/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
