@@ -64,22 +64,16 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-## advanced-excel on APIs.io
+> **Retired — merged into [Microsoft Excel (Advanced)](https://apis.io/providers/microsoft-excel-advanced/).** The two records described the same company, and that one is canonical. Nothing in this repository is maintained any more.
 
-Everything profiled for advanced-excel is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/advanced-excel/](https://apis.io/providers/advanced-excel/)** — or go straight to one of the APIs or properties below.
+**Why:** Duplicate profile of the same Microsoft product (Excel automation on Microsoft Graph). Missed by the 2026-09-12 estate merge because the slug lacks the microsoft- prefix. All five of its APIs (Charts, Ranges, Tables, Workbooks, Worksheets on graph.microsoft.com/v1.0) are already held by the survivor; blog history ported.
 
-## API Evangelist rating
+**Retired:** 2026-11-04
 
-Not yet rated. See [apis.io/providers/advanced-excel/](https://apis.io/providers/advanced-excel/).
+## Where to go now
 
-## How this profile is made
-
-API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
-
-The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for advanced-excel: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+The current profile, APIs, artifacts and rating for Microsoft Excel (Advanced) are on APIs.io at **[apis.io/providers/microsoft-excel-advanced/](https://apis.io/providers/microsoft-excel-advanced/)**.
 
 ## Open an issue
 
-- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/advanced-excel/issues/new).
-- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
-- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
+Issues about Microsoft Excel (Advanced) belong on the canonical profile: [open one on api-evangelist/microsoft-excel-advanced](https://github.com/api-evangelist/microsoft-excel-advanced/issues/new). If you think this merge was a mistake — these were really two companies — say so there or email [info@apievangelist.com](mailto:info@apievangelist.com).
